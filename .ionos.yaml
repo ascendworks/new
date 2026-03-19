@@ -1,0 +1,6 @@
+---
+distFolder: out
+buildFolder: .
+buildCommands:
+  - npm install
+  - npm run build
