@@ -2,17 +2,98 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import { ShieldCheck } from "@phosphor-icons/react";
-import "swiper/css";
 
 const partners = [
-  { name: "ServiceNow", role: "Build Partner", abbr: "SN" },
-  { name: "Microsoft", role: "Azure Partner", abbr: "MS" },
-  { name: "AWS", role: "Technology Partner", abbr: "AWS" },
-  { name: "Databricks", role: "Data Partner", abbr: "DB" },
-  { name: "Snowflake", role: "Data Warehouse", abbr: "SF" },
+  {
+    name: "ServiceNow",
+    role: "Build Partner",
+    tier: "ServiceNow Build Partner Status",
+    borderColor: "border-teal/30",
+    bgColor: "bg-teal/10",
+    textColor: "text-teal",
+    logoBg: "bg-white",
+    logo: (
+      <img
+        src="https://cdn.simpleicons.org/servicenow/0D9B8A"
+        alt="ServiceNow"
+        width={36}
+        height={36}
+        className="w-9 h-9 object-contain"
+      />
+    ),
+  },
+  {
+    name: "Microsoft",
+    role: "Azure Partner",
+    tier: "Microsoft Partner Network",
+    borderColor: "border-purple/30",
+    bgColor: "bg-purple/10",
+    textColor: "text-purple",
+    logoBg: "bg-white",
+    logo: (
+      <svg viewBox="0 0 21 21" width="36" height="36" xmlns="http://www.w3.org/2000/svg" aria-label="Microsoft">
+        <rect x="0" y="0" width="10" height="10" fill="#F25022" />
+        <rect x="11" y="0" width="10" height="10" fill="#7FBA00" />
+        <rect x="0" y="11" width="10" height="10" fill="#00A4EF" />
+        <rect x="11" y="11" width="10" height="10" fill="#FFB900" />
+      </svg>
+    ),
+  },
+  {
+    name: "AWS",
+    role: "Technology Partner",
+    tier: "AWS Partner Network",
+    borderColor: "border-gold/30",
+    bgColor: "bg-gold/10",
+    textColor: "text-gold",
+    logoBg: "bg-white",
+    logo: (
+      <img
+        src="https://cdn.simpleicons.org/amazonaws/C9A84C"
+        alt="Amazon Web Services"
+        width={36}
+        height={36}
+        className="w-9 h-9 object-contain"
+      />
+    ),
+  },
+  {
+    name: "Databricks",
+    role: "Data Partner",
+    tier: "Databricks Partner Connect",
+    borderColor: "border-amber/30",
+    bgColor: "bg-amber/10",
+    textColor: "text-amber",
+    logoBg: "bg-white",
+    logo: (
+      <img
+        src="https://cdn.simpleicons.org/databricks/F59E0B"
+        alt="Databricks"
+        width={36}
+        height={36}
+        className="w-9 h-9 object-contain"
+      />
+    ),
+  },
+  {
+    name: "Snowflake",
+    role: "Data Warehouse",
+    tier: "Snowflake Partner Network",
+    borderColor: "border-teal/30",
+    bgColor: "bg-teal/10",
+    textColor: "text-teal",
+    logoBg: "bg-white",
+    logo: (
+      <img
+        src="https://cdn.simpleicons.org/snowflake/29B5E8"
+        alt="Snowflake"
+        width={36}
+        height={36}
+        className="w-9 h-9 object-contain"
+      />
+    ),
+  },
 ];
 
 const certifications = [
@@ -54,47 +135,48 @@ export default function PartnersSection() {
           </p>
         </motion.div>
 
-        {/* Partner logos — Swiper infinite ticker */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="mb-16"
-        >
-          <Swiper
-            modules={[Autoplay]}
-            slidesPerView={2}
-            spaceBetween={16}
-            loop
-            autoplay={{ delay: 0, disableOnInteraction: false }}
-            speed={3500}
-            allowTouchMove={false}
-            breakpoints={{
-              640: { slidesPerView: 3 },
-              1024: { slidesPerView: 5 },
-            }}
-          >
-            {[...partners, ...partners].map((partner, i) => (
-              <SwiperSlide key={`${partner.name}-${i}`}>
-                <div className="flex flex-col items-center justify-center gap-1 p-6 rounded-2xl border border-navy/10 bg-white hover:border-navy/25 hover:shadow-md transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-off-white flex items-center justify-center mb-1">
-                    <span className="font-display font-800 text-navy text-xs tracking-tight">
-                      {partner.abbr}
-                    </span>
-                  </div>
-                  <span className="font-600 text-navy text-sm text-center">{partner.name}</span>
-                  <span className="text-navy/40 text-xs text-center">{partner.role}</span>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </motion.div>
+        {/* Partner cards — colored boxes like How We Work */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 mb-16">
+          {partners.map((partner, i) => (
+            <motion.div
+              key={partner.name}
+              initial={{ opacity: 0, y: 28 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
+              className={`relative flex flex-col p-5 rounded-2xl border ${partner.borderColor} ${partner.bgColor} group hover:-translate-y-1 transition-transform duration-300`}
+            >
+              {/* Faint number watermark */}
+              <span className={`font-display font-800 text-6xl ${partner.textColor} opacity-10 absolute top-3 right-4 leading-none select-none`}>
+                0{i + 1}
+              </span>
+
+              {/* Logo box */}
+              <div className={`w-14 h-14 rounded-xl border ${partner.borderColor} ${partner.logoBg} flex items-center justify-center mb-4 shadow-sm`}>
+                {partner.logo}
+              </div>
+
+              {/* Name */}
+              <h3 className={`font-display font-700 text-base ${partner.textColor} mb-0.5 leading-snug`}>
+                {partner.name}
+              </h3>
+
+              {/* Role */}
+              <p className="text-navy/60 text-xs mb-4 leading-snug">{partner.role}</p>
+
+              {/* Tier */}
+              <div className={`pt-3 border-t ${partner.borderColor}`}>
+                <p className="text-navy/40 text-[10px] uppercase tracking-wider mb-1">Status</p>
+                <p className={`text-xs font-600 ${partner.textColor} leading-snug`}>{partner.tier}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
         {/* Certifications */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
           className="border-t border-navy/10 pt-12"
         >
           <p className="text-center text-navy/50 text-xs uppercase tracking-widest mb-8">
