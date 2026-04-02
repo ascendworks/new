@@ -2,12 +2,12 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Search, Compass, Rocket, TrendingUp } from "lucide-react";
+import { MagnifyingGlass, Compass, Rocket, TrendUp } from "@phosphor-icons/react";
 
 const steps = [
   {
     number: "01",
-    icon: Search,
+    icon: MagnifyingGlass,
     title: "Assess",
     subtitle: "Discover What's Holding IT Back",
     description:
@@ -43,7 +43,7 @@ const steps = [
   },
   {
     number: "04",
-    icon: TrendingUp,
+    icon: TrendUp,
     title: "Accelerate",
     subtitle: "Sustain the Gains",
     description:
@@ -62,7 +62,6 @@ export default function ProcessSection() {
   return (
     <section ref={ref} className="section-dark py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -82,7 +81,6 @@ export default function ProcessSection() {
           </p>
         </motion.div>
 
-        {/* Steps */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, i) => {
             const Icon = step.icon;
@@ -94,36 +92,19 @@ export default function ProcessSection() {
                 transition={{ duration: 0.55, delay: i * 0.12, ease: "easeOut" }}
                 className={`relative flex flex-col p-6 rounded-2xl border ${step.borderColor} ${step.bgColor} group`}
               >
-                {/* Number */}
                 <span className={`font-display font-800 text-6xl ${step.color} opacity-20 absolute top-4 right-5 leading-none select-none`}>
                   {step.number}
                 </span>
-
-                {/* Icon */}
                 <div className={`w-12 h-12 rounded-xl border ${step.borderColor} flex items-center justify-center mb-5`}>
-                  <Icon size={22} className={step.color} />
+                  <Icon size={22} weight="duotone" className={step.color} />
                 </div>
-
-                {/* Content */}
-                <h3 className={`font-display font-800 text-2xl ${step.color} mb-1`}>
-                  {step.title}
-                </h3>
-                <p className="text-white font-600 text-sm mb-3 leading-snug">
-                  {step.subtitle}
-                </p>
-                <p className="text-slate text-sm leading-relaxed flex-1 mb-5">
-                  {step.description}
-                </p>
-
-                {/* Deliverable */}
+                <h3 className={`font-display font-800 text-2xl ${step.color} mb-1`}>{step.title}</h3>
+                <p className="text-white font-600 text-sm mb-3 leading-snug">{step.subtitle}</p>
+                <p className="text-slate text-sm leading-relaxed flex-1 mb-5">{step.description}</p>
                 <div className={`pt-4 border-t ${step.borderColor}`}>
-                  <p className="text-xs text-slate uppercase tracking-wider mb-1">
-                    Deliverable
-                  </p>
+                  <p className="text-xs text-slate uppercase tracking-wider mb-1">Deliverable</p>
                   <p className={`text-sm font-600 ${step.color}`}>{step.deliverable}</p>
                 </div>
-
-                {/* Connector arrow (not on last) */}
                 {i < steps.length - 1 && (
                   <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
                     <div className="w-6 h-6 rounded-full bg-navy-mid border border-white/10 flex items-center justify-center">

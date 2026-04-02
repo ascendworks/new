@@ -3,11 +3,19 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, Zap, Brain, Settings, Building2, Users, BarChart3 } from "lucide-react";
+import {
+  ArrowRight,
+  Lightning,
+  Brain,
+  Gear,
+  Buildings,
+  Users,
+  ChartBar,
+} from "@phosphor-icons/react";
 
 const services = [
   {
-    icon: Settings,
+    icon: Gear,
     title: "ServiceNow Implementation",
     tag: "Core Platform",
     description:
@@ -33,7 +41,7 @@ const services = [
     href: "/services/agentic-ai",
   },
   {
-    icon: Zap,
+    icon: Lightning,
     title: "ITSM & Platform Optimization",
     tag: "Optimization",
     description:
@@ -46,7 +54,7 @@ const services = [
     href: "/services/itsm",
   },
   {
-    icon: Building2,
+    icon: Buildings,
     title: "Platform Architecture",
     tag: "Enterprise Scale",
     description:
@@ -59,7 +67,7 @@ const services = [
     href: "/services/architecture",
   },
   {
-    icon: BarChart3,
+    icon: ChartBar,
     title: "Strategic IT Advisory",
     tag: "C-Suite",
     description:
@@ -93,7 +101,6 @@ export default function ServicesSection() {
   return (
     <section ref={ref} className="section-light py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -118,7 +125,6 @@ export default function ServicesSection() {
           </div>
         </motion.div>
 
-        {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => {
             const Icon = service.icon;
@@ -133,30 +139,25 @@ export default function ServicesSection() {
                   href={service.href}
                   className={`group flex flex-col h-full p-6 rounded-2xl border bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${service.borderColor}`}
                 >
-                  {/* Icon + tag */}
                   <div className="flex items-start justify-between mb-5">
                     <div className={`w-12 h-12 rounded-xl ${service.iconBg} flex items-center justify-center`}>
-                      <Icon size={22} className={service.iconColor} />
+                      <Icon size={22} weight="duotone" className={service.iconColor} />
                     </div>
                     <span className="text-xs font-600 text-navy/40 uppercase tracking-wider pt-1">
                       {service.tag}
                     </span>
                   </div>
-
-                  {/* Content */}
                   <h3 className="font-display font-700 text-lg text-navy mb-3 leading-snug">
                     {service.title}
                   </h3>
                   <p className="text-navy/60 text-sm leading-relaxed flex-1 mb-5">
                     {service.description}
                   </p>
-
-                  {/* Metrics */}
                   <div className="pt-4 border-t border-navy/8">
                     <p className="text-xs text-navy/40 mb-3">{service.metrics}</p>
                     <span className="flex items-center gap-1 text-sm font-600 text-navy group-hover:gap-2 transition-all">
                       Explore Service{" "}
-                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight size={14} weight="bold" className="group-hover:translate-x-1 transition-transform" />
                     </span>
                   </div>
                 </Link>

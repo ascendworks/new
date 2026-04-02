@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, Calendar } from "lucide-react";
+import { ArrowRight, CalendarBlank } from "@phosphor-icons/react";
 
 export default function CTASection() {
   const ref = useRef(null);
@@ -18,7 +18,6 @@ export default function CTASection() {
           transition={{ duration: 0.65 }}
           className="relative rounded-3xl overflow-hidden bg-navy p-10 md:p-16 text-center mesh-bg"
         >
-          {/* Geometric accents */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-gold/10 blur-3xl" />
             <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-purple/10 blur-3xl" />
@@ -50,9 +49,9 @@ export default function CTASection() {
                 href="/contact"
                 className="group flex items-center justify-center gap-2 px-8 py-4 bg-gold text-navy font-display font-700 text-base rounded-xl hover:bg-gold-light transition-all shadow-xl shadow-gold/20"
               >
-                <Calendar size={16} />
+                <CalendarBlank size={16} weight="bold" />
                 Book a Discovery Call
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={16} weight="bold" className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/case-studies"

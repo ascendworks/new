@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { CheckCircle2, Shield, Clock, Trophy, HeartHandshake, Lightbulb } from "lucide-react";
+import { CheckCircle, ShieldCheck, Clock, Trophy, Handshake, Lightbulb } from "@phosphor-icons/react";
 
 const differentiators = [
   {
@@ -20,7 +20,7 @@ const differentiators = [
     stat: "Top 3% globally",
   },
   {
-    icon: HeartHandshake,
+    icon: Handshake,
     title: "CIO-Level Engagement",
     description:
       "Your executive sponsor is a former CIO. Not a sales rep. We understand the board room, the budget cycle, and the politics of enterprise IT transformation.",
@@ -34,14 +34,14 @@ const differentiators = [
     stat: "60% avg. ticket deflection",
   },
   {
-    icon: Shield,
+    icon: ShieldCheck,
     title: "Enterprise-Grade Security",
     description:
       "SOC 2 Type II certified. HIPAA, SOX, PCI-DSS, FedRAMP experienced. Every engagement includes a security review — it's not optional, it's standard.",
     stat: "SOC 2 Type II certified",
   },
   {
-    icon: CheckCircle2,
+    icon: CheckCircle,
     title: "No-Disappear Guarantee",
     description:
       "We don't go dark after go-live. Every client receives 90 days of post-deployment optimization, adoption tracking, and performance tuning — included.",
@@ -55,14 +55,12 @@ export default function WhySection() {
 
   return (
     <section ref={ref} className="section-dark py-24 lg:py-32 relative overflow-hidden">
-      {/* Background accents */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gold/5 blur-3xl" />
         <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-purple/8 blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -83,7 +81,6 @@ export default function WhySection() {
           </p>
         </motion.div>
 
-        {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {differentiators.map((item, i) => {
             const Icon = item.icon;
@@ -97,7 +94,7 @@ export default function WhySection() {
               >
                 <div className="flex items-start justify-between mb-5">
                   <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center">
-                    <Icon size={20} className="text-gold" />
+                    <Icon size={20} weight="duotone" className="text-gold" />
                   </div>
                   <span className="text-xs font-600 text-gold/70 bg-gold/10 px-2.5 py-1 rounded-full">
                     {item.stat}

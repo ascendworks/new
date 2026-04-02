@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react";
 
 const industries = [
   {
@@ -75,7 +75,6 @@ export default function IndustriesSection() {
   return (
     <section ref={ref} className="section-light py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -101,7 +100,6 @@ export default function IndustriesSection() {
           </div>
         </motion.div>
 
-        {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {industries.map((industry, i) => (
             <motion.div
@@ -128,7 +126,7 @@ export default function IndustriesSection() {
                 <div className="pt-4 border-t border-navy/8 flex items-center justify-between">
                   <span className="text-xs font-600 text-navy/50">{industry.stat}</span>
                   <span className="flex items-center gap-1 text-sm font-600 text-navy group-hover:gap-2 transition-all">
-                    Learn More <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                    Learn More <ArrowRight size={13} weight="bold" className="group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
               </Link>

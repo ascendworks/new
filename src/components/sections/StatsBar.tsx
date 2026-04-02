@@ -1,40 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import CountUp from "react-countup";
 
 const stats = [
-  {
-    value: "200+",
-    label: "ServiceNow Deployments",
-    color: "text-gold",
-  },
-  {
-    value: "6 wks",
-    label: "Avg. Time to Go-Live",
-    color: "text-teal",
-  },
-  {
-    value: "40%",
-    label: "Avg. MTTR Reduction",
-    color: "text-purple",
-  },
-  {
-    value: "$2M+",
-    label: "Annual Value Unlocked / Client",
-    color: "text-gold",
-  },
-  {
-    value: "98%",
-    label: "Client Retention Rate",
-    color: "text-teal",
-  },
-  {
-    value: "15+",
-    label: "Industries Served",
-    color: "text-purple",
-  },
+  { end: 200, suffix: "+", label: "ServiceNow Deployments", color: "text-gold" },
+  { end: 6, suffix: " wks", label: "Avg. Time to Go-Live", color: "text-teal" },
+  { end: 40, suffix: "%", label: "Avg. MTTR Reduction", color: "text-purple" },
+  { prefix: "$", end: 2, suffix: "M+", label: "Annual Value Unlocked / Client", color: "text-gold" },
+  { end: 98, suffix: "%", label: "Client Retention Rate", color: "text-teal" },
+  { end: 15, suffix: "+", label: "Industries Served", color: "text-purple" },
 ];
 
 export default function StatsBar() {
@@ -51,12 +27,22 @@ export default function StatsBar() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
-              className="flex flex-col items-center text-center gap-1 group"
+              className="flex flex-col items-center text-center gap-1"
             >
-              <span
-                className={`font-display font-800 text-3xl lg:text-4xl ${stat.color} leading-none`}
-              >
-                {stat.value}
+              <span className={`font-display font-800 text-3xl lg:text-4xl ${stat.color} leading-none tabular-nums`}>
+                {inView ? (
+                  <CountUp
+                    start={0}
+                    end={stat.end}
+                    duration={2.2}
+                    delay={i * 0.1}
+                    prefix={stat.prefix ?? ""}
+                    suffix={stat.suffix}
+                    useEasing
+                  />
+                ) : (
+                  `${stat.prefix ?? ""}0${stat.suffix}`
+                )}
               </span>
               <span className="text-slate text-xs leading-snug mt-1 max-w-[120px]">
                 {stat.label}

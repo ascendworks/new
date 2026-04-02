@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, Clock } from "lucide-react";
+import { ArrowRight, Clock } from "@phosphor-icons/react";
 
 const articles = [
   {
@@ -51,7 +51,6 @@ export default function InsightsSection() {
   return (
     <section ref={ref} className="section-navy-mid py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -71,11 +70,10 @@ export default function InsightsSection() {
             href="/insights"
             className="flex items-center gap-2 text-gold font-600 text-sm hover:gap-3 transition-all shrink-0"
           >
-            View All Insights <ArrowRight size={14} />
+            View All Insights <ArrowRight size={14} weight="bold" />
           </Link>
         </motion.div>
 
-        {/* Articles grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.map((article, i) => (
             <motion.div
@@ -88,37 +86,28 @@ export default function InsightsSection() {
                 href={article.href}
                 className="group flex flex-col h-full p-6 rounded-2xl border border-white/8 bg-navy hover:border-gold/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                {/* Top meta */}
                 <div className="flex items-center justify-between mb-5">
                   <span className={`px-2.5 py-1 rounded-full text-xs font-600 ${article.tagBg}`}>
                     {article.tag}
                   </span>
                   <div className="flex items-center gap-1 text-slate text-xs">
-                    <Clock size={11} />
+                    <Clock size={11} weight="bold" />
                     {article.readTime}
                   </div>
                 </div>
-
-                {/* Category */}
                 <span className={`text-xs font-600 uppercase tracking-wider mb-2 ${article.accent}`}>
                   {article.category}
                 </span>
-
-                {/* Title */}
                 <h3 className="font-display font-700 text-base text-white leading-snug mb-3 group-hover:text-gold transition-colors">
                   {article.title}
                 </h3>
-
-                {/* Excerpt */}
                 <p className="text-slate text-sm leading-relaxed flex-1 mb-5">
                   {article.excerpt}
                 </p>
-
-                {/* Footer */}
                 <div className="flex items-center justify-between pt-4 border-t border-white/8">
                   <span className="text-slate/60 text-xs">{article.date}</span>
                   <span className={`flex items-center gap-1 text-sm font-600 ${article.accent} group-hover:gap-2 transition-all`}>
-                    Read More <ArrowRight size={12} />
+                    Read More <ArrowRight size={12} weight="bold" />
                   </span>
                 </div>
               </Link>

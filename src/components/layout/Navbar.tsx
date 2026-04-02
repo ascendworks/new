@@ -2,39 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
+import { CaretDown, List, X, ArrowRight } from "@phosphor-icons/react";
 
 const services = [
-  {
-    label: "ServiceNow Implementation",
-    desc: "Full-lifecycle deployment in 6 weeks",
-    href: "/services/servicenow",
-  },
-  {
-    label: "Agentic AI & Automation",
-    desc: "AI-driven workflows that work without you",
-    href: "/services/agentic-ai",
-  },
-  {
-    label: "ITSM & Platform Optimization",
-    desc: "Unlock the ROI already in your instance",
-    href: "/services/itsm",
-  },
-  {
-    label: "Platform Architecture",
-    desc: "Designed to scale with enterprise demands",
-    href: "/services/architecture",
-  },
-  {
-    label: "Strategic IT Advisory",
-    desc: "C-suite partnership for transformation",
-    href: "/services/advisory",
-  },
-  {
-    label: "Talent & Staffing",
-    desc: "Certified ServiceNow engineers on demand",
-    href: "/services/staffing",
-  },
+  { label: "ServiceNow Implementation", desc: "Full-lifecycle deployment in 6 weeks", href: "/services/servicenow" },
+  { label: "Agentic AI & Automation", desc: "AI-driven workflows that work without you", href: "/services/agentic-ai" },
+  { label: "ITSM & Platform Optimization", desc: "Unlock the ROI already in your instance", href: "/services/itsm" },
+  { label: "Platform Architecture", desc: "Designed to scale with enterprise demands", href: "/services/architecture" },
+  { label: "Strategic IT Advisory", desc: "C-suite partnership for transformation", href: "/services/advisory" },
+  { label: "Talent & Staffing", desc: "Certified ServiceNow engineers on demand", href: "/services/staffing" },
 ];
 
 const industries = [
@@ -67,8 +43,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const toggle = (key: DropdownKey) =>
-    setOpen((prev) => (prev === key ? null : key));
+  const toggle = (key: DropdownKey) => setOpen((prev) => (prev === key ? null : key));
 
   return (
     <header
@@ -99,8 +74,9 @@ export default function Navbar() {
               className="flex items-center gap-1 px-4 py-2 text-slate-light hover:text-white text-sm font-medium transition-colors rounded-lg hover:bg-white/5"
             >
               What We Do
-              <ChevronDown
-                size={14}
+              <CaretDown
+                size={13}
+                weight="bold"
                 className={`transition-transform ${open === "services" ? "rotate-180" : ""}`}
               />
             </button>
@@ -134,8 +110,9 @@ export default function Navbar() {
               className="flex items-center gap-1 px-4 py-2 text-slate-light hover:text-white text-sm font-medium transition-colors rounded-lg hover:bg-white/5"
             >
               Industries
-              <ChevronDown
-                size={14}
+              <CaretDown
+                size={13}
+                weight="bold"
                 className={`transition-transform ${open === "industries" ? "rotate-180" : ""}`}
               />
             </button>
@@ -166,8 +143,9 @@ export default function Navbar() {
               className="flex items-center gap-1 px-4 py-2 text-slate-light hover:text-white text-sm font-medium transition-colors rounded-lg hover:bg-white/5"
             >
               Company
-              <ChevronDown
-                size={14}
+              <CaretDown
+                size={13}
+                weight="bold"
                 className={`transition-transform ${open === "company" ? "rotate-180" : ""}`}
               />
             </button>
@@ -205,7 +183,7 @@ export default function Navbar() {
             className="flex items-center gap-2 px-5 py-2.5 bg-gold text-navy text-sm font-600 rounded-xl hover:bg-gold-light transition-colors"
           >
             Talk to an Expert
-            <ArrowRight size={14} />
+            <ArrowRight size={14} weight="bold" />
           </Link>
         </div>
 
@@ -215,16 +193,14 @@ export default function Navbar() {
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {mobileOpen ? <X size={22} weight="bold" /> : <List size={22} weight="bold" />}
         </button>
       </nav>
 
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="lg:hidden bg-navy-light border-t border-gold/10 px-6 py-6 flex flex-col gap-2">
-          <p className="text-gold text-xs font-600 uppercase tracking-widest mb-2">
-            Services
-          </p>
+          <p className="text-gold text-xs font-600 uppercase tracking-widest mb-2">Services</p>
           {services.map((s) => (
             <Link
               key={s.href}
@@ -236,9 +212,7 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="border-t border-white/10 my-3" />
-          <p className="text-gold text-xs font-600 uppercase tracking-widest mb-2">
-            Industries
-          </p>
+          <p className="text-gold text-xs font-600 uppercase tracking-widest mb-2">Industries</p>
           {industries.map((i) => (
             <Link
               key={i.href}
@@ -266,7 +240,7 @@ export default function Navbar() {
             className="flex items-center justify-center gap-2 w-full py-3 bg-gold text-navy font-600 rounded-xl text-sm"
             onClick={() => setMobileOpen(false)}
           >
-            Talk to an Expert <ArrowRight size={14} />
+            Talk to an Expert <ArrowRight size={14} weight="bold" />
           </Link>
         </div>
       )}

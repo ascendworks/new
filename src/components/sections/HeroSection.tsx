@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, CaretDown } from "@phosphor-icons/react";
 
 const badges = [
   "ServiceNow Build Partner",
@@ -19,7 +19,6 @@ export default function HeroSection() {
         <div className="absolute bottom-0 -left-40 w-[500px] h-[500px] rounded-full bg-teal/8 blur-[100px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-gold/5" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[1100px] rounded-full border border-white/3" />
-        {/* Grid lines */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
@@ -87,10 +86,7 @@ export default function HeroSection() {
               className="group flex items-center justify-center gap-2 px-8 py-4 bg-gold text-navy font-display font-700 text-base rounded-xl hover:bg-gold-light transition-all duration-200 shadow-lg shadow-gold/20"
             >
               Book a Discovery Call
-              <ArrowRight
-                size={16}
-                className="group-hover:translate-x-1 transition-transform"
-              />
+              <ArrowRight size={16} weight="bold" className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="/case-studies"
@@ -141,7 +137,7 @@ export default function HeroSection() {
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
         >
-          <ChevronDown size={16} />
+          <CaretDown size={16} weight="bold" />
         </motion.div>
       </motion.div>
     </section>
