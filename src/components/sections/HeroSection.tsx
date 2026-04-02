@@ -29,7 +29,7 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-12">
         <div className="max-w-5xl">
           {/* Trust badges */}
           <motion.div

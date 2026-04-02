@@ -36,8 +36,8 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-5 group">
-              <div className="w-9 h-9 rounded-lg bg-gold flex items-center justify-center">
-                <span className="text-navy font-display font-800 text-sm">AWN</span>
+              <div className="w-12 h-9 rounded-lg bg-gold flex items-center justify-center px-2">
+                <span className="text-navy font-display font-800 text-sm tracking-wide">AWN</span>
               </div>
               <span className="font-display font-700 text-white text-lg tracking-tight">
                 Ascend<span className="text-gold">Works</span>Now
