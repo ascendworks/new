@@ -68,7 +68,7 @@ export default function WhySection() {
           className="text-center mb-16 max-w-3xl mx-auto"
         >
           <span className="inline-block px-3 py-1 rounded-full border border-gold/30 text-gold text-xs font-600 uppercase tracking-widest mb-4">
-            Why AscendWorks
+            Why AscendWorksNow
           </span>
           <h2 className="font-display font-800 text-4xl md:text-5xl text-white leading-tight mb-4">
             The Stats. The Facts.{" "}

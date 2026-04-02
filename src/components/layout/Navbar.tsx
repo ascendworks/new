@@ -23,7 +23,7 @@ const industries = [
 ];
 
 const company = [
-  { label: "About AscendWorks", href: "/about" },
+  { label: "About AscendWorksNow", href: "/about" },
   { label: "Leadership Team", href: "/about#team" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Certifications & Partners", href: "/partners" },
@@ -57,10 +57,10 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-9 h-9 rounded-lg bg-gold flex items-center justify-center">
-            <span className="text-navy font-display font-800 text-sm">AW</span>
+            <span className="text-navy font-display font-800 text-sm">AWN</span>
           </div>
           <span className="font-display font-700 text-white text-lg tracking-tight">
-            Ascend<span className="text-gold">Works</span>
+            Ascend<span className="text-gold">Works</span>Now
           </span>
         </Link>
 

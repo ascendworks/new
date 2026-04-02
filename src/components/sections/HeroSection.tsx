@@ -69,7 +69,7 @@ export default function HeroSection() {
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
             className="text-slate-light text-lg md:text-xl leading-relaxed max-w-2xl mb-10"
           >
-            AscendWorks turns ServiceNow into the operating system of your enterprise.
+            AscendWorksNow turns ServiceNow into the operating system of your enterprise.
             We deploy faster, optimize deeper, and stay until transformation is real —
             not just reported.
           </motion.p>

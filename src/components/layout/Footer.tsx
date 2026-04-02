@@ -20,7 +20,7 @@ const industries = [
 ];
 
 const company = [
-  { label: "About AscendWorks", href: "/about" },
+  { label: "About AscendWorksNow", href: "/about" },
   { label: "Leadership Team", href: "/about#team" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights & Blog", href: "/insights" },
@@ -37,15 +37,15 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-5 group">
               <div className="w-9 h-9 rounded-lg bg-gold flex items-center justify-center">
-                <span className="text-navy font-display font-800 text-sm">AW</span>
+                <span className="text-navy font-display font-800 text-sm">AWN</span>
               </div>
               <span className="font-display font-700 text-white text-lg tracking-tight">
-                Ascend<span className="text-gold">Works</span>
+                Ascend<span className="text-gold">Works</span>Now
               </span>
             </Link>
 
             <p className="text-slate text-sm leading-relaxed max-w-xs mb-8">
-              AscendWorks is the enterprise IT transformation firm for organizations
+              AscendWorksNow is the enterprise IT transformation firm for organizations
               that are serious about what ServiceNow can become — not just what it is.
             </p>
 
@@ -144,7 +144,7 @@ export default function Footer() {
 
       <div className="border-t border-white/8">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate/60 text-xs">© 2026 AscendWorks Inc. All rights reserved.</p>
+          <p className="text-slate/60 text-xs">© 2026 AscendWorksNow Inc. All rights reserved.</p>
           <div className="flex gap-6">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
               <Link key={item} href="#" className="text-slate/60 hover:text-slate text-xs transition-colors">
