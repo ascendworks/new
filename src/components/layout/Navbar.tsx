@@ -25,7 +25,7 @@ const company = [
   { label: "Leadership Team", href: "/about#team" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Certifications & Partners", href: "/partners" },
-  { label: "Careers", href: "/careers" },
+  { label: "Careers", href: "/careers", badge: "Hiring" },
 ];
 
 type DropdownKey = "services" | "industries" | "company" | null;
@@ -159,10 +159,15 @@ export default function Navbar() {
                   <Link
                     key={c.href}
                     href={c.href}
-                    className="block px-3 py-2 text-sm text-slate-light hover:text-white hover:bg-white/5 rounded-xl transition-colors"
+                    className="flex items-center justify-between px-3 py-2 text-sm text-slate-light hover:text-white hover:bg-white/5 rounded-xl transition-colors"
                     onClick={() => setOpen(null)}
                   >
                     {c.label}
+                    {"badge" in c && c.badge && (
+                      <span className="text-[9px] font-700 uppercase tracking-wider px-1.5 py-0.5 rounded-md bg-teal/15 text-teal border border-teal/25">
+                        {c.badge}
+                      </span>
+                    )}
                   </Link>
                 ))}
               </div>
