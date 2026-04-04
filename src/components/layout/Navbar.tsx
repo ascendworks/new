@@ -14,11 +14,9 @@ const services = [
 ];
 
 const industries = [
-  { label: "Healthcare & Life Sciences", href: "/industries/healthcare" },
-  { label: "Financial Services", href: "/industries/financial" },
-  { label: "Manufacturing", href: "/industries/manufacturing" },
-  { label: "Government & Public Sector", href: "/industries/government" },
   { label: "Energy & Utilities", href: "/industries/energy" },
+  { label: "Financial Services", href: "/industries/financial" },
+  { label: "Healthcare & Life Sciences", href: "/industries/healthcare" },
   { label: "Technology & Media", href: "/industries/technology" },
 ];
 
@@ -69,6 +67,7 @@ export default function Navbar() {
           {/* Services */}
           <div className="relative">
             <button
+              type="button"
               onClick={() => toggle("services")}
               onMouseEnter={() => setOpen("services")}
               className="flex items-center gap-1 px-4 py-2 text-slate-light hover:text-white text-sm font-medium transition-colors rounded-lg hover:bg-white/5"
@@ -105,6 +104,7 @@ export default function Navbar() {
           {/* Industries */}
           <div className="relative">
             <button
+              type="button"
               onClick={() => toggle("industries")}
               onMouseEnter={() => setOpen("industries")}
               className="flex items-center gap-1 px-4 py-2 text-slate-light hover:text-white text-sm font-medium transition-colors rounded-lg hover:bg-white/5"
@@ -138,6 +138,7 @@ export default function Navbar() {
           {/* Company */}
           <div className="relative">
             <button
+              type="button"
               onClick={() => toggle("company")}
               onMouseEnter={() => setOpen("company")}
               className="flex items-center gap-1 px-4 py-2 text-slate-light hover:text-white text-sm font-medium transition-colors rounded-lg hover:bg-white/5"
@@ -189,6 +190,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
+          type="button"
           className="lg:hidden text-white p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
