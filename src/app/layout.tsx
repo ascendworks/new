@@ -17,9 +17,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AscendWorks | ServiceNow Implementation & Enterprise IT Transformation",
+  title: "AscendWorksNow | ServiceNow Implementation & Enterprise IT Transformation",
   description:
-    "AscendWorks helps enterprise IT leaders transform their organizations through ServiceNow implementation, Agentic AI, and strategic consulting. Deployed in 6 weeks. Results that last.",
+    "AscendWorksNow helps enterprise IT leaders transform their organizations through ServiceNow implementation, Agentic AI, and strategic consulting. Deployed in 6 weeks. Results that last.",
   keywords: [
     "ServiceNow implementation",
     "enterprise IT consulting",
@@ -27,14 +27,19 @@ export const metadata: Metadata = {
     "IT transformation",
     "Agentic AI",
     "ITSM",
-    "AscendWorks",
+    "AscendWorksNow",
   ],
+  metadataBase: new URL("https://www.ascendworksnow.com"),
   openGraph: {
-    title: "AscendWorks | ServiceNow & Enterprise IT Transformation",
+    title: "AscendWorksNow | ServiceNow & Enterprise IT Transformation",
     description:
-      "From cost center to innovation engine. AscendWorks delivers ServiceNow implementations that transform how enterprise IT operates.",
-    siteName: "AscendWorks",
+      "From cost center to innovation engine. AscendWorksNow delivers ServiceNow implementations that transform how enterprise IT operates.",
+    siteName: "AscendWorksNow",
+    url: "https://www.ascendworksnow.com",
     type: "website",
+  },
+  alternates: {
+    canonical: "https://www.ascendworksnow.com",
   },
 };
 
