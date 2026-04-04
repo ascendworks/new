@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import {
@@ -596,6 +596,128 @@ function JobDetail({ job }: { job: Job }) {
 
 // ─── MAIN PAGE ────────────────────────────────────────────────────────────────
 
+// ─── PARTICLE NETWORK CANVAS ─────────────────────────────────────────────────
+
+function ParticleCanvas() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouse = useRef({ x: -9999, y: -9999 });
+
+  const animate = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    const W = canvas.width;
+    const H = canvas.height;
+    const PARTICLE_COUNT = 70;
+    const MAX_DIST = 150;
+
+    type Particle = {
+      x: number; y: number; vx: number; vy: number;
+      radius: number; phase: number; speed: number;
+    };
+
+    const particles: Particle[] = Array.from({ length: PARTICLE_COUNT }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      radius: Math.random() * 1.5 + 0.8,
+      phase: Math.random() * Math.PI * 2,
+      speed: Math.random() * 0.012 + 0.006,
+    }));
+
+    let raf: number;
+    let frame = 0;
+
+    function draw() {
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, W, H);
+      frame++;
+
+      for (const p of particles) {
+        // Mouse attraction
+        const dx = mouse.current.x - p.x;
+        const dy = mouse.current.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 200) {
+          p.vx += (dx / dist) * 0.012;
+          p.vy += (dy / dist) * 0.012;
+        }
+
+        // Cap speed
+        const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+        if (speed > 1.2) { p.vx *= 0.96; p.vy *= 0.96; }
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Bounce
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+
+        // Draw node with pulse
+        const pulse = 0.5 + 0.5 * Math.sin(frame * p.speed + p.phase);
+        const alpha = 0.25 + 0.2 * pulse;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius + pulse * 0.8, 0, Math.PI * 2);
+        // Gold/teal alternating by index
+        const isGold = particles.indexOf(p) % 3 !== 2;
+        ctx.fillStyle = isGold
+          ? `rgba(188,181,111,${alpha})`
+          : `rgba(17,174,174,${alpha})`;
+        ctx.fill();
+      }
+
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < MAX_DIST) {
+            const opacity = (1 - d / MAX_DIST) * 0.18;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(188,181,111,${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+
+      raf = requestAnimationFrame(draw);
+    }
+
+    draw();
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  useEffect(() => {
+    const cleanup = animate();
+    const onMove = (e: MouseEvent) => {
+      const rect = canvasRef.current?.getBoundingClientRect();
+      if (rect) { mouse.current.x = e.clientX - rect.left; mouse.current.y = e.clientY - rect.top; }
+    };
+    window.addEventListener("mousemove", onMove);
+    return () => { cleanup?.(); window.removeEventListener("mousemove", onMove); };
+  }, [animate]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-70"
+      aria-hidden="true"
+    />
+  );
+}
+
+// ─── MAIN PAGE ────────────────────────────────────────────────────────────────
+
 export default function CareersClient() {
   const [activeJob, setActiveJob] = useState<Job | null>(null);
   const [filter, setFilter] = useState<string>("All");
@@ -625,6 +747,7 @@ export default function CareersClient() {
 
         {/* ── HERO ──────────────────────────────────────────────────────── */}
         <section className="relative pt-32 pb-16 overflow-hidden mesh-bg grain">
+          <ParticleCanvas />
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute -top-40 right-0 w-[700px] h-[700px] rounded-full bg-gold/8 blur-[140px]" />
             <div className="absolute bottom-0 -left-40 w-[400px] h-[400px] rounded-full bg-teal/6 blur-[100px]" />

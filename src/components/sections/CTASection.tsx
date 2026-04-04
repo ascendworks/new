@@ -1,13 +1,27 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import Link from "next/link";
-import { ArrowRight, CalendarBlank } from "@phosphor-icons/react";
+import { useRef, useState } from "react";
+import { ArrowRight, CheckCircle, SealCheck, ArrowsClockwise, ShieldCheck } from "@phosphor-icons/react";
+
+const trustSignals = [
+  "ServiceNow Build Partner",
+  "SOC 2 Type II Certified",
+  "6-week deployment guarantee",
+  "Response within 1 business day",
+];
 
 export default function CTASection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [sending, setSending] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSending(true);
+    setTimeout(() => { setSending(false); setSubmitted(true); }, 1400);
+  }
 
   return (
     <section ref={ref} className="section-light py-24 lg:py-32">
@@ -16,53 +30,162 @@ export default function CTASection() {
           initial={{ opacity: 0, y: 32 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.65 }}
-          className="relative rounded-3xl overflow-hidden bg-navy p-10 md:p-16 text-center mesh-bg"
+          className="relative rounded-3xl overflow-hidden bg-navy mesh-bg"
         >
+          {/* Background glows */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-gold/10 blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-purple/10 blur-3xl" />
+            <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-gold/8 blur-[120px]" />
+            <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full bg-purple/8 blur-[100px]" />
+            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-teal/5 blur-[80px]" />
             <svg className="absolute inset-0 w-full h-full opacity-[0.025]" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="ctogrid" width="48" height="48" patternUnits="userSpaceOnUse">
-                  <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" strokeWidth="0.5" />
-                </pattern>
-              </defs>
+              <defs><pattern id="ctogrid" width="48" height="48" patternUnits="userSpaceOnUse">
+                <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" strokeWidth="0.5" />
+              </pattern></defs>
               <rect width="100%" height="100%" fill="url(#ctogrid)" />
             </svg>
           </div>
 
-          <div className="relative z-10">
-            <span className="inline-block px-3 py-1 rounded-full border border-gold/30 text-gold text-xs font-600 uppercase tracking-widest mb-6">
-              Let&apos;s Build What&apos;s Next
-            </span>
-            <h2 className="font-display font-800 text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 max-w-3xl mx-auto">
-              Ready to See What Your{" "}
-              <span className="text-gold-gradient">IT Investment Is Worth?</span>
-            </h2>
-            <p className="text-slate-light text-lg leading-relaxed max-w-xl mx-auto mb-10">
-              Book a 30-minute discovery call with our enterprise team. We&apos;ll
-              identify your highest-value transformation opportunity — and tell you
-              exactly how we&apos;d go after it.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="group flex items-center justify-center gap-2 px-8 py-4 bg-gold text-navy font-display font-700 text-base rounded-xl hover:bg-gold-light transition-all shadow-xl shadow-gold/20"
-              >
-                <CalendarBlank size={16} weight="bold" />
-                Book a Discovery Call
-                <ArrowRight size={16} weight="bold" className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/case-studies"
-                className="flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-medium rounded-xl hover:bg-white/8 hover:border-white/40 transition-all"
-              >
-                View Case Studies
-              </Link>
+          <div className="relative z-10 grid lg:grid-cols-2 gap-0">
+            {/* ── LEFT: Headline + trust ─────────────────────────────── */}
+            <div className="flex flex-col justify-center p-10 md:p-14 lg:p-16 lg:border-r lg:border-white/8">
+              <span className="inline-block px-3 py-1 rounded-full border border-gold/30 text-gold text-xs font-600 uppercase tracking-widest mb-6 w-fit">
+                Let&apos;s Build What&apos;s Next
+              </span>
+              <h2 className="font-display font-800 text-4xl md:text-5xl lg:text-[52px] text-white leading-[1.07] tracking-tight mb-6">
+                Ready to See What<br />
+                Your IT Investment<br />
+                <span className="text-gold">Is Worth?</span>
+              </h2>
+              <p className="text-slate-light text-base leading-relaxed mb-10 max-w-sm">
+                Tell us about your challenge. An AscendWorks enterprise specialist
+                will respond within one business day — with a direct point of view,
+                not a sales deck.
+              </p>
+
+              {/* Trust signals */}
+              <div className="space-y-3">
+                {trustSignals.map((t) => (
+                  <div key={t} className="flex items-center gap-3">
+                    <SealCheck size={15} weight="fill" className="text-teal shrink-0" />
+                    <span className="text-slate-light text-sm">{t}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Privacy note */}
+              <div className="flex items-center gap-2 mt-8 pt-8 border-t border-white/8">
+                <ShieldCheck size={14} weight="fill" className="text-slate/50 shrink-0" />
+                <p className="text-slate text-xs leading-snug">
+                  Your information is handled with enterprise-grade confidentiality.
+                  We never share your data.
+                </p>
+              </div>
             </div>
-            <p className="text-slate text-sm mt-6">
-              No sales pitch. No commitment. Just a direct conversation about your goals.
-            </p>
+
+            {/* ── RIGHT: Form ────────────────────────────────────────── */}
+            <div className="p-8 md:p-10 lg:p-12">
+              {submitted ? (
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col items-center justify-center text-center h-full min-h-[480px] gap-5">
+                  <div className="w-20 h-20 rounded-2xl bg-teal/15 flex items-center justify-center">
+                    <CheckCircle size={40} weight="fill" className="text-teal" />
+                  </div>
+                  <h3 className="font-display font-800 text-white text-2xl">Thank You for Reaching Out.</h3>
+                  <p className="text-slate-light text-base leading-relaxed max-w-sm">
+                    Your inquiry has been received. An AscendWorks enterprise specialist
+                    will contact you within one business day.
+                  </p>
+                  <button type="button" onClick={() => setSubmitted(false)}
+                    className="mt-2 text-gold text-sm font-600 hover:text-white transition-colors">
+                    Submit another inquiry
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-slate-light text-xs font-600 uppercase tracking-wider">First Name *</label>
+                      <input required type="text" placeholder="Jane"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate/50 focus:outline-none focus:border-gold/50 transition-colors" />
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-slate-light text-xs font-600 uppercase tracking-wider">Last Name *</label>
+                      <input required type="text" placeholder="Smith"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate/50 focus:outline-none focus:border-gold/50 transition-colors" />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-slate-light text-xs font-600 uppercase tracking-wider">Work Email *</label>
+                    <input required type="email" placeholder="jane@enterprise.com"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate/50 focus:outline-none focus:border-gold/50 transition-colors" />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-slate-light text-xs font-600 uppercase tracking-wider">Company *</label>
+                      <input required type="text" placeholder="Acme Corp"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate/50 focus:outline-none focus:border-gold/50 transition-colors" />
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-slate-light text-xs font-600 uppercase tracking-wider">Job Title</label>
+                      <input type="text" placeholder="CIO"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate/50 focus:outline-none focus:border-gold/50 transition-colors" />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-slate-light text-xs font-600 uppercase tracking-wider">Industry *</label>
+                      <select required title="Industry" aria-label="Industry"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold/50 transition-colors appearance-none">
+                        <option value="" className="bg-navy text-slate">Select industry</option>
+                        <option value="energy" className="bg-navy">Oil &amp; Gas / Energy</option>
+                        <option value="banking" className="bg-navy">Banking &amp; Financial Services</option>
+                        <option value="healthcare" className="bg-navy">Healthcare &amp; Life Sciences</option>
+                        <option value="manufacturing" className="bg-navy">Manufacturing</option>
+                        <option value="technology" className="bg-navy">Technology &amp; Media</option>
+                        <option value="retail" className="bg-navy">Retail &amp; Commerce</option>
+                        <option value="government" className="bg-navy">Government &amp; Public Sector</option>
+                        <option value="other" className="bg-navy">Other</option>
+                      </select>
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-slate-light text-xs font-600 uppercase tracking-wider">Project Scope *</label>
+                      <select required title="Project Scope" aria-label="Project Scope"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold/50 transition-colors appearance-none">
+                        <option value="" className="bg-navy text-slate">Select scope</option>
+                        <option value="pilot" className="bg-navy">Pilot / Proof of Concept</option>
+                        <option value="department" className="bg-navy">Department-Level</option>
+                        <option value="enterprise" className="bg-navy">Enterprise-Wide</option>
+                        <option value="global" className="bg-navy">Global / Multi-Region</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-slate-light text-xs font-600 uppercase tracking-wider">Phone</label>
+                    <input type="tel" placeholder="+1 (555) 000-0000"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate/50 focus:outline-none focus:border-gold/50 transition-colors" />
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-slate-light text-xs font-600 uppercase tracking-wider">Tell Us About Your Challenge *</label>
+                    <textarea required rows={3} placeholder="What's the problem you're trying to solve? Be as specific as you'd like."
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate/50 focus:outline-none focus:border-gold/50 transition-colors resize-none" />
+                  </div>
+
+                  <button type="submit" disabled={sending}
+                    className="group flex items-center justify-center gap-2 w-full py-4 bg-gold text-navy font-display font-700 text-base rounded-xl hover:bg-amber-400 transition-all shadow-xl shadow-gold/20 disabled:opacity-60 mt-1">
+                    {sending ? (
+                      <><ArrowsClockwise size={16} className="animate-spin" />Submitting…</>
+                    ) : (
+                      <>Submit Inquiry <ArrowRight size={15} weight="bold" className="group-hover:translate-x-1 transition-transform" /></>
+                    )}
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </motion.div>
       </div>

@@ -4,7 +4,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import StatsBar from "@/components/sections/StatsBar";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProcessSection from "@/components/sections/ProcessSection";
-import IndustriesSection from "@/components/sections/IndustriesSection";
+import CaseStudiesSection from "@/components/sections/CaseStudiesSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import PartnersSection from "@/components/sections/PartnersSection";
 import WhySection from "@/components/sections/WhySection";
@@ -28,8 +28,8 @@ export default function Home() {
         {/* 4. Process — dark */}
         <ProcessSection />
 
-        {/* 5. Industries — light */}
-        <IndustriesSection />
+        {/* 5. Case Studies — dark */}
+        <CaseStudiesSection />
 
         {/* 6. Testimonials — navy mid */}
         <TestimonialsSection />
