@@ -597,7 +597,7 @@ function JobDetail({ job }: { job: Job }) {
 // ─── MAIN PAGE ────────────────────────────────────────────────────────────────
 
 export default function CareersClient() {
-  const [activeJob, setActiveJob] = useState<Job>(jobs[0]);
+  const [activeJob, setActiveJob] = useState<Job | null>(null);
   const [filter, setFilter] = useState<string>("All");
   const [search, setSearch] = useState("");
   const detailRef = useRef<HTMLDivElement>(null);
@@ -724,7 +724,7 @@ export default function CareersClient() {
                     </div>
                   ) : (
                     filtered.map((job) => (
-                      <JobRow key={job.id} job={job} active={activeJob.id === job.id}
+                      <JobRow key={job.id} job={job} active={activeJob?.id === job.id}
                         onClick={() => selectJob(job)} />
                     ))
                   )}
@@ -734,14 +734,28 @@ export default function CareersClient() {
               {/* Right: Detail */}
               <div ref={detailRef} className="lg:col-span-8 xl:col-span-8">
                 <AnimatePresence mode="wait">
-                  <motion.div key={activeJob.id}
-                    initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.3, ease: "easeOut" }}>
-                    {/* On light bg wrap */}
-                    <div className="bg-navy rounded-3xl p-5 md:p-6">
-                      <JobDetail job={activeJob} />
-                    </div>
-                  </motion.div>
+                  {!activeJob ? (
+                    <motion.div key="placeholder"
+                      initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }} transition={{ duration: 0.25 }}
+                      className="hidden lg:flex flex-col items-center justify-center min-h-[480px] rounded-3xl border border-navy/10 bg-white text-center p-12">
+                      <div className="w-16 h-16 rounded-2xl bg-navy/5 flex items-center justify-center mb-5">
+                        <Briefcase size={28} weight="duotone" className="text-navy/30" />
+                      </div>
+                      <h3 className="font-display font-700 text-navy text-lg mb-2">Select a role to view details</h3>
+                      <p className="text-navy/40 text-sm max-w-xs leading-relaxed">
+                        Click any position on the left to see the full job description and apply online.
+                      </p>
+                    </motion.div>
+                  ) : (
+                    <motion.div key={activeJob.id}
+                      initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.3, ease: "easeOut" }}>
+                      <div className="bg-navy rounded-3xl p-5 md:p-6">
+                        <JobDetail job={activeJob} />
+                      </div>
+                    </motion.div>
+                  )}
                 </AnimatePresence>
               </div>
             </div>
