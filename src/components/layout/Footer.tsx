@@ -58,11 +58,11 @@ export default function Footer() {
                 hello@ascendworksnow.com
               </a>
               <a
-                href="tel:+18005551234"
+                href="tel:+12242290699"
                 className="flex items-center gap-2 text-slate hover:text-white text-sm transition-colors"
               >
                 <Phone size={14} weight="fill" className="text-gold shrink-0" />
-                +1 (800) 555-1234
+                +1 (224) 229-0699
               </a>
               <span className="flex items-center gap-2 text-slate text-sm">
                 <MapPin size={14} weight="fill" className="text-gold shrink-0" />
