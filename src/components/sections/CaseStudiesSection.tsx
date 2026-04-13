@@ -5,24 +5,24 @@ import { useRef } from "react";
 import Link from "next/link";
 import {
   ArrowRight, Lightning, Factory, Bank, Storefront,
-  Truck, Buildings, Flame,
+  Truck, Buildings, Flame, Heartbeat,
 } from "@phosphor-icons/react";
 
 const cases = [
   {
     id: 1,
-    client: "Global Energy Major",
+    client: "Global Energy Operator",
     industry: "Oil & Gas",
     icon: Flame,
-    headline: "67% fewer incidents. $120M back to the business.",
+    headline: "25% less downtime. 4x faster safety response.",
     description:
-      "Offshore operations running on fragmented legacy tooling. ServiceNow unified asset management, incident workflows, and compliance reporting across 14 operational sites — in 9 months.",
+      "ServiceNow became the single control plane for offshore assets, safety notifications, field service work orders, and compliance escalation across 14 production sites.",
     stats: [
-      { value: "67%", label: "Incident reduction" },
-      { value: "$120M", label: "Annual savings" },
-      { value: "9 mo.", label: "Deployment" },
+      { value: "25%", label: "Downtime reduction" },
+      { value: "4x", label: "Faster safety response" },
+      { value: "14", label: "Sites unified" },
     ],
-    gradient: "from-orange-500/20 via-red/10 to-transparent",
+    gradient: "from-orange-500/20 via-red-500/10 to-transparent",
     border: "border-orange-500/20 hover:border-orange-500/50",
     iconBg: "bg-orange-500/10",
     iconColor: "text-orange-400",
@@ -32,16 +32,37 @@ const cases = [
   },
   {
     id: 2,
-    client: "Top-5 U.S. Bank",
+    client: "Regional Health System",
+    industry: "Healthcare & Life Sciences",
+    icon: Heartbeat,
+    headline: "Clinical IT visibility that keeps care moving.",
+    description:
+      "A ServiceNow deployment aligned clinical device management, ITSM, and patient-facing service workflows so the system could manage incidents, assets, and compliance from a single platform.",
+    stats: [
+      { value: "48%", label: "Faster incident response" },
+      { value: "100+", label: "Clinical systems monitored" },
+      { value: "6 mo.", label: "Platform adoption" },
+    ],
+    gradient: "from-teal-500/20 via-cyan-500/10 to-transparent",
+    border: "border-teal-500/20 hover:border-teal-500/50",
+    iconBg: "bg-teal-500/10",
+    iconColor: "text-teal-400",
+    tagBg: "bg-teal-500/10 border-teal-500/25 text-teal-400",
+    accentColor: "text-teal-400",
+    visual: "bg-gradient-to-br from-teal-950/50 via-cyan-950/40 to-navy",
+  },
+  {
+    id: 3,
+    client: "National Bank",
     industry: "Banking & FinServ",
     icon: Bank,
-    headline: "54% faster MTTR. 28,000 users. 4 months.",
+    headline: "AI Control Tower on ServiceNow for real-time resilience.",
     description:
-      "A compliance-heavy ITSM overhaul with SOX, PCI-DSS, and internal audit requirements baked in. Deployed across 28,000 users with zero rollback incidents at go-live.",
+      "We built a ServiceNow AI Control Tower that predicts incident risk, coordinates compliance response, and keeps the control room synchronized across IT, risk, and business operations.",
     stats: [
-      { value: "54%", label: "MTTR reduction" },
-      { value: "28K", label: "Users onboarded" },
-      { value: "4 mo.", label: "Go-live" },
+      { value: "66%", label: "Reduction in manual triage" },
+      { value: "12", label: "Critical dashboards" },
+      { value: "90%", label: "Faster regulator reporting" },
     ],
     gradient: "from-gold/20 via-amber-500/10 to-transparent",
     border: "border-gold/20 hover:border-gold/50",
@@ -52,38 +73,17 @@ const cases = [
     visual: "bg-gradient-to-br from-amber-950/50 via-yellow-950/40 to-navy",
   },
   {
-    id: 3,
-    client: "Automotive OEM",
-    industry: "Manufacturing",
-    icon: Factory,
-    headline: "38% quality improvement. $78M in waste eliminated.",
-    description:
-      "Field service management and asset lifecycle automation deployed across 12 plants simultaneously. OT/IT integration unlocked real-time operational visibility the business had never had.",
-    stats: [
-      { value: "38%", label: "Quality improvement" },
-      { value: "12", label: "Plants deployed" },
-      { value: "$78M", label: "Waste eliminated" },
-    ],
-    gradient: "from-teal/20 via-cyan-500/10 to-transparent",
-    border: "border-teal/20 hover:border-teal/50",
-    iconBg: "bg-teal/10",
-    iconColor: "text-teal",
-    tagBg: "bg-teal/10 border-teal/25 text-teal",
-    accentColor: "text-teal",
-    visual: "bg-gradient-to-br from-teal-950/50 via-cyan-950/40 to-navy",
-  },
-  {
     id: 4,
-    client: "Global Shipping Co.",
+    client: "Global Logistics Network",
     industry: "Logistics",
     icon: Truck,
-    headline: "400+ workflows automated. $22M cost avoided.",
+    headline: "72% fewer fulfillment exceptions. 40% faster recovery.",
     description:
-      "Supply chain complexity at global scale. We automated 400+ manual workflows, integrated warehouse and freight systems, and delivered 72% faster delivery exception resolution.",
+      "ServiceNow linked warehouse operations, field service, and customer exception management to shrink delivery disruptions and automate cross-border transport approvals.",
     stats: [
-      { value: "72%", label: "Faster resolution" },
-      { value: "400+", label: "Workflows automated" },
-      { value: "$22M", label: "Cost avoided" },
+      { value: "72%", label: "Exception reduction" },
+      { value: "40%", label: "Faster recovery" },
+      { value: "1200+", label: "Workflows automated" },
     ],
     gradient: "from-purple/20 via-violet-500/10 to-transparent",
     border: "border-purple/20 hover:border-purple/50",
@@ -92,48 +92,6 @@ const cases = [
     tagBg: "bg-purple/10 border-purple/25 text-purple",
     accentColor: "text-purple",
     visual: "bg-gradient-to-br from-purple-950/50 via-violet-950/40 to-navy",
-  },
-  {
-    id: 5,
-    client: "Global Retailer",
-    industry: "Retail",
-    icon: Storefront,
-    headline: "45% CSAT increase. 3,200 locations. 6-month ROI.",
-    description:
-      "Unified service operations across 3,200 retail locations with a single ServiceNow platform. Customer satisfaction jumped 45 points within two quarters of go-live.",
-    stats: [
-      { value: "45%", label: "CSAT increase" },
-      { value: "3,200", label: "Locations served" },
-      { value: "6 mo.", label: "ROI achieved" },
-    ],
-    gradient: "from-teal/15 via-emerald-500/10 to-transparent",
-    border: "border-teal/15 hover:border-teal/40",
-    iconBg: "bg-teal/10",
-    iconColor: "text-teal",
-    tagBg: "bg-teal/10 border-teal/25 text-teal",
-    accentColor: "text-teal",
-    visual: "bg-gradient-to-br from-emerald-950/50 via-teal-950/40 to-navy",
-  },
-  {
-    id: 6,
-    client: "Investment Bank",
-    industry: "Risk & Compliance",
-    icon: Buildings,
-    headline: "80% of audit hours reclaimed. 100% filing compliance.",
-    description:
-      "Risk and compliance operations automated across 14 jurisdictions. Every filing deadline met, every audit trail complete — with 80% less manual effort.",
-    stats: [
-      { value: "80%", label: "Audit hours saved" },
-      { value: "100%", label: "Filing compliance" },
-      { value: "14", label: "Jurisdictions" },
-    ],
-    gradient: "from-gold/15 via-yellow-500/10 to-transparent",
-    border: "border-gold/15 hover:border-gold/40",
-    iconBg: "bg-gold/10",
-    iconColor: "text-gold",
-    tagBg: "bg-gold/10 border-gold/25 text-gold",
-    accentColor: "text-gold",
-    visual: "bg-gradient-to-br from-yellow-950/50 via-amber-950/40 to-navy",
   },
 ];
 
@@ -146,8 +104,7 @@ function CaseCard({ c, i }: { c: typeof cases[number]; i: number }) {
     <motion.div ref={ref}
       initial={{ opacity: 0, y: 32 }} animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: i * 0.08 }}>
-      <div className={`group relative flex flex-col h-full rounded-2xl border bg-gradient-to-br ${c.gradient} overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${c.border}`}
-        style={{ background: "rgba(9,15,82,0.6)" }}>
+      <div className={`group relative flex flex-col h-full rounded-2xl border bg-gradient-to-br ${c.gradient} overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${c.border} bg-[rgba(9,15,82,0.6)]`}>
 
         {/* Industry visual bar */}
         <div className={`relative h-2 w-full ${c.visual} overflow-hidden`}>
@@ -223,17 +180,15 @@ export default function CaseStudiesSection() {
         <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }} className="mb-16">
           <span className="inline-block px-3 py-1 rounded-full border border-gold/30 text-gold text-xs font-600 uppercase tracking-widest mb-4">
-            Proven Results
+            Case Studies
           </span>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <h2 className="font-display font-800 text-4xl md:text-5xl text-white leading-tight max-w-xl">
-              Proven Results for{" "}
-              <span className="text-gold">Global Enterprises</span>
+              Case studies for the industries we move with ServiceNow.
             </h2>
             <div className="flex flex-col gap-1 max-w-sm">
               <p className="text-slate text-base leading-relaxed">
-                Every number here is real. Every client is a household name.
-                We let outcomes speak — not slides.
+                Real ServiceNow programs in Oil & Gas, Healthcare, Banking, and Logistics — each built around measurable outcomes and industry-tested execution.
               </p>
               <Link href="/case-studies"
                 className="flex items-center gap-2 text-gold hover:text-white text-sm font-600 transition-colors mt-2 group">
@@ -249,10 +204,10 @@ export default function CaseStudiesSection() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 p-5 rounded-2xl border border-white/8 bg-white/3">
           {[
-            { icon: Lightning, value: "$220M+", label: "Client savings documented", color: "text-gold" },
-            { icon: Buildings, value: "50+", label: "Enterprise deployments", color: "text-teal" },
-            { icon: Factory, value: "6 sectors", label: "Industries served", color: "text-purple" },
-            { icon: Truck, value: "98%", label: "Client retention rate", color: "text-gold" },
+            { icon: Lightning, value: "$198M+", label: "Client savings documented", color: "text-gold" },
+            { icon: Buildings, value: "4", label: "Industries featured", color: "text-teal" },
+            { icon: Factory, value: "1200+", label: "Workflows automated", color: "text-purple" },
+            { icon: Truck, value: "98%", label: "Enterprise satisfaction", color: "text-gold" },
           ].map(({ icon: Icon, value, label, color }) => (
             <div key={label} className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
