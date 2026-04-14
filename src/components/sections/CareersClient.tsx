@@ -881,12 +881,12 @@ export default function CareersClient() {
                 <div className="sticky top-24 space-y-2.5">
                   <div className="flex items-center justify-between mb-5 pb-3 border-b-2 border-navy/10">
                     <div>
-                      <p className="text-[10px] font-700 uppercase tracking-widest text-navy/40 leading-none mb-1">
+                      <p className="text-[10px] font-700 uppercase tracking-widest text-navy leading-none mb-1">
                         Open Positions
                       </p>
                       <p className="font-display font-800 text-navy text-xl leading-none">
                         {filtered.length}
-                        <span className="font-400 text-base text-navy/50 ml-1">
+                        <span className="font-400 text-sm text-navy/50 ml-1">
                           {filtered.length !== 1 ? "roles" : "role"} available
                         </span>
                       </p>
