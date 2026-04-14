@@ -39,6 +39,48 @@ interface Job {
 
 const jobs: Job[] = [
   {
+    id: "s2p-architect",
+    title: "ServiceNow S2P Technical Consultant / Solution Architect",
+    area: "Source-to-Pay",
+    location: "Remote",
+    type: "Contract / Corp-to-Corp",
+    duration: "6+ months",
+    experience: "12+ years",
+    positions: 1,
+    eligibility: "Open",
+    skills: ["S2P", "PSM", "Flow Designer", "Agentic AI", "Now Assist", "SPO", "SLO", "APO", "Integration Hub"],
+    clientType: "BFSI",
+    urgency: "Active",
+    posted: "Just posted",
+    summary:
+      "Our BFSI client is looking for a ServiceNow S2P Technical Consultant / Lead / Solution Architect to lead the design and implementation of ServiceNow's Source-to-Pay suite. You will be responsible for transforming complex procurement landscapes into streamlined, AI-driven workflows. This is not just a technical role — you are a strategic partner who bridges the gap between Finance and Procurement stakeholders and technical delivery teams to eliminate shadow spend and maximize ROI.",
+    responsibilities: [
+      "Lead end-to-end architectural design for Sourcing & Procurement Operations (SPO), Supplier Lifecycle Operations (SLO), and Accounts Payable Operations (APO)",
+      "Design seamless integrations between ServiceNow and Tier-1 ERPs (SAP S/4HANA, Oracle, or Workday) using Integration Hub and customized APIs",
+      "Incorporate Agentic AI and Now Assist capabilities to automate spot-buying, invoice exception handling, and supplier risk assessments",
+      "Facilitate workshops with C-suite and Procurement leaders to translate business KPIs into technical requirements",
+      "Establish best practices for the Common Service Data Model (CSDM) to ensure procurement data supports enterprise-wide visibility",
+      "Configure Flow Designer, Business Rules, Client Scripts, and the ServiceNow Portal (Employee Center) for procurement workflows",
+      "Design governance frameworks for the full procurement lifecycle: PR to PO, Goods Receipt, Invoicing, and Supplier Risk",
+    ],
+    requirements: [
+      "7+ years of experience in the ServiceNow ecosystem, with at least 3 years focused specifically on Procurement Service Management (PSM) or S2P",
+      "Deep understanding of Flow Designer, Business Rules, Client Scripts, and the ServiceNow Portal (Employee Center)",
+      "Strong knowledge of the procurement lifecycle: PR to PO, Goods Receipt, Invoicing, and Supplier Risk",
+      "Experience implementing AI-driven automation or generative AI features within the ServiceNow platform",
+      "Ability to articulate technical complexity through a business-value lens — cycle time, compliance, and cost savings",
+      "Prior experience in a high-growth technology staffing or consulting environment",
+      "Corp-to-Corp engagement only",
+    ],
+    certifications: [
+      "ServiceNow Certified System Administrator (CSA)",
+      "Certified Implementation Specialist (CIS) – Procurement or Supplier Lifecycle Management",
+      "Now Assist or Agentic AI specialization preferred",
+    ],
+    accentColor: "text-orange",
+    bgGlow: "from-orange/15 to-transparent",
+  },
+  {
     id: "ai-control-tower",
     title: "ServiceNow AI Control Tower Architect",
     area: "AI & Automation",
@@ -719,7 +761,7 @@ function ParticleCanvas() {
 // ─── MAIN PAGE ────────────────────────────────────────────────────────────────
 
 export default function CareersClient() {
-  const [activeJob, setActiveJob] = useState<Job | null>(null);
+  const [activeJob, setActiveJob] = useState<Job>(jobs[0]);
   const [filter, setFilter] = useState<string>("All");
   const [search, setSearch] = useState("");
   const detailRef = useRef<HTMLDivElement>(null);
@@ -837,9 +879,23 @@ export default function CareersClient() {
               {/* Left: Job list */}
               <div className="lg:col-span-4 xl:col-span-4">
                 <div className="sticky top-24 space-y-2.5">
-                  <p className="text-navy/40 text-xs font-600 uppercase tracking-widest mb-4">
-                    {filtered.length} position{filtered.length !== 1 ? "s" : ""} available
-                  </p>
+                  <div className="flex items-center justify-between mb-5 pb-3 border-b-2 border-navy/10">
+                    <div>
+                      <p className="text-[10px] font-700 uppercase tracking-widest text-navy/40 leading-none mb-1">
+                        Open Positions
+                      </p>
+                      <p className="font-display font-800 text-navy text-xl leading-none">
+                        {filtered.length}
+                        <span className="font-400 text-base text-navy/50 ml-1">
+                          {filtered.length !== 1 ? "roles" : "role"} available
+                        </span>
+                      </p>
+                    </div>
+                    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red/8 border border-red/20 text-red text-[10px] font-700 uppercase tracking-wide">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red animate-pulse" />
+                      Hiring Now
+                    </span>
+                  </div>
                   {filtered.length === 0 ? (
                     <div className="flex flex-col items-center py-12 text-center">
                       <MagnifyingGlass size={28} className="text-navy/20 mb-3" />
