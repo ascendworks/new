@@ -1,7 +1,11 @@
 Options -Indexes
 DirectoryIndex index.html
 
+# ── HTTPS redirect ────────────────────────────────────────────
 RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 RewriteBase /
 
 # Serve existing files/dirs directly
@@ -10,3 +14,49 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # Route all other requests to index.html
 RewriteRule ^(.*)$ /index.html [L,QSA]
+
+# ── Security headers ──────────────────────────────────────────
+<IfModule mod_headers.c>
+  # Prevent MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Prevent clickjacking
+  Header always set X-Frame-Options "DENY"
+
+  # Enforce HTTPS for 1 year (HSTS)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # Control referrer information
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Restrict browser features
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+
+  # Content Security Policy
+  # unsafe-inline required for Framer Motion inline styles + Tailwind CSS v4
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+  # Remove server fingerprinting headers
+  Header always unset X-Powered-By
+  Header always unset Server
+</IfModule>
+
+# ── Cache control ─────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Hashed static assets (JS/CSS bundles) — cache 1 year
+  <FilesMatch "\.(js|css|woff2|woff|ttf)$">
+    ExpiresDefault "access plus 1 year"
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Images
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg|ico)$">
+    ExpiresDefault "access plus 30 days"
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  # HTML — never cache (always fresh)
+  <FilesMatch "\.html$">
+    ExpiresDefault "access plus 0 seconds"
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+</IfModule>
