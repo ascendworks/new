@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, DM_Sans } from "next/font/google";
 import "./globals.css";
+import Knowledge26Widget from "@/components/widgets/Knowledge26Widget";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -50,7 +51,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${sora.variable} ${dmSans.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased">{children}</body>
+      <body className="min-h-full flex flex-col antialiased">
+        {children}
+        <Knowledge26Widget />
+      </body>
     </html>
   );
 }
