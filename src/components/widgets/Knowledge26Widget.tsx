@@ -245,7 +245,6 @@ export default function Knowledge26Widget() {
   const [saved, setSaved] = useState<string[]>([]);
   const [viewed, setViewed] = useState<string[]>([]);
   const [catCounts, setCatCounts] = useState<Record<string, number>>({});
-  const [pulse, setPulse] = useState(true);
   const searchRef = useRef<HTMLInputElement>(null);
 
   // Load visitor state from localStorage
@@ -255,10 +254,16 @@ export default function Knowledge26Widget() {
     setCatCounts(lsGet<Record<string, number>>(LS_CAT_COUNTS, {}));
   }, []);
 
-  // Stop pulse after first open
+  // Listen for open event dispatched by the Navbar K26 button
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("k26:open", handler);
+    return () => window.removeEventListener("k26:open", handler);
+  }, []);
+
+  // Track opens in localStorage + focus search on open
   useEffect(() => {
     if (open) {
-      setPulse(false);
       const opens = lsGet<number>(LS_OPEN_COUNT, 0);
       lsSet(LS_OPEN_COUNT, opens + 1);
       setTimeout(() => searchRef.current?.focus(), 300);
@@ -321,28 +326,6 @@ export default function Knowledge26Widget() {
 
   return (
     <>
-      {/* ── Floating trigger button ──────────────────────────────────────── */}
-      <button
-        onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-40 group flex items-center gap-2.5 rounded-2xl bg-navy px-4 py-3 shadow-2xl ring-1 ring-white/15 transition-all duration-200 hover:ring-gold/40 hover:shadow-gold/10"
-        aria-label="Open Knowledge26 Hub"
-      >
-        {/* Pulse dot */}
-        <span className="relative flex h-2.5 w-2.5">
-          {pulse && (
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-60" />
-          )}
-          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-red-500" />
-        </span>
-        <span className="text-[11px] font-700 uppercase tracking-widest text-gold">K26</span>
-        <span className="hidden text-xs font-500 text-white/60 group-hover:text-white/80 sm:block">
-          Live Feed
-        </span>
-        <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[10px] font-600 text-white/70">
-          {TOTAL_ITEMS}
-        </span>
-      </button>
-
       {/* ── Backdrop ─────────────────────────────────────────────────────── */}
       <AnimatePresence>
         {open && (

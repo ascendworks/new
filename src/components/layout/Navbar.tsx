@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { CaretDown, List, X, ArrowRight } from "@phosphor-icons/react";
+import { CaretDown, List, X, ArrowRight, Fire } from "@phosphor-icons/react";
 
 const services = [
   { label: "ServiceNow Implementation", desc: "Full-lifecycle deployment in 6 weeks", href: "/services/servicenow" },
@@ -180,6 +180,20 @@ export default function Navbar() {
           >
             Insights
           </Link>
+
+          {/* K26 Live Feed trigger */}
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent("k26:open"))}
+            className="flex items-center gap-2 px-3 py-2 rounded-xl border border-gold/30 bg-gold/8 text-gold hover:bg-gold/15 hover:border-gold/60 transition-all duration-200 text-sm font-600"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
+            </span>
+            <Fire size={13} weight="fill" className="text-red-400" />
+            K26 Live
+          </button>
         </div>
 
         {/* CTA */}
@@ -241,6 +255,22 @@ export default function Navbar() {
               {c.label}
             </Link>
           ))}
+          <div className="border-t border-white/10 my-3" />
+          <button
+            type="button"
+            onClick={() => {
+              setMobileOpen(false);
+              window.dispatchEvent(new CustomEvent("k26:open"));
+            }}
+            className="flex items-center gap-2.5 px-3 py-2 rounded-xl border border-gold/30 bg-gold/8 text-gold text-sm font-600"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
+            </span>
+            <Fire size={13} weight="fill" className="text-red-400" />
+            K26 Live Feed — ServiceNow Intelligence
+          </button>
           <div className="border-t border-white/10 my-4" />
           <Link
             href="/contact"
