@@ -18,6 +18,7 @@ import {
   ArrowsClockwise,
   Lightning,
 } from "@phosphor-icons/react";
+import OilGasInsightSection from "@/components/sections/OilGasInsightSection";
 
 // ─── shared fade wrapper ───────────────────────────────────────────────────
 function Fade({
@@ -263,11 +264,12 @@ export default function InsightsPageContent() {
           </motion.div>
 
           {/* Article nav cards */}
-          <div className="mt-14 grid gap-4 sm:grid-cols-3">
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { cat: "Workplace", tag: "Guide", title: "ServiceNow Workplace Service Delivery Suite", href: "#workplace", accent: "text-teal", border: "border-teal/20 hover:border-teal/50", dot: "bg-teal" },
               { cat: "Infrastructure", tag: "Strategy", title: "Navigating Supply Chain Volatility Together", href: "#infrastructure", accent: "text-gold", border: "border-gold/20 hover:border-gold/50", dot: "bg-gold" },
-              { cat: "Automation", tag: "Technical", title: "Leveraging VMware + ServiceNow to Automate IaaS", href: "#automation", accent: "text-purple", border: "border-purple/20 hover:border-purple/50", dot: "bg-purple" },
+              { cat: "Automation", tag: "Technical", title: "VMware + ServiceNow IaaS Automation", href: "#automation", accent: "text-purple", border: "border-purple/20 hover:border-purple/50", dot: "bg-purple" },
+              { cat: "Oil & Gas", tag: "Use Cases", title: "ServiceNow + AI for Energy Operations", href: "#oilgas", accent: "text-red", border: "border-red/15 hover:border-red/40", dot: "bg-red" },
             ].map((card, i) => (
               <motion.a
                 key={card.cat}
@@ -667,18 +669,21 @@ export default function InsightsPageContent() {
         </div>
       </section>
 
+      {/* ── ARTICLE 4: OIL & GAS USE CASES ───────────────────────────── */}
+      <OilGasInsightSection />
+
       {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <section className="section-dark py-20 lg:py-24">
+      <section className="section-light py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <Fade className="mx-auto max-w-2xl text-center">
-            <span className="inline-flex items-center rounded-full border border-gold/25 bg-gold/8 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold">
+            <span className="inline-flex items-center rounded-full border border-gold/25 bg-gold/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold">
               Ready to Transform
             </span>
-            <h2 className="mt-6 font-display text-3xl font-extrabold leading-tight text-white md:text-4xl">
+            <h2 className="mt-6 font-display text-3xl font-extrabold leading-tight text-navy md:text-4xl">
               Put these insights to work for your enterprise.
             </h2>
-            <p className="mt-4 leading-7 text-slate-light">
-              Whether you're modernizing workplace operations, shoring up infrastructure resilience, or automating manual IT processes — AscendWorks brings the ServiceNow expertise to execute with precision.
+            <p className="mt-4 leading-7 text-slate-600">
+              Whether you&apos;re modernizing workplace operations, shoring up infrastructure resilience, or deploying ServiceNow for Oil &amp; Gas — AscendWorks brings the expertise to execute with precision.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
@@ -689,7 +694,7 @@ export default function InsightsPageContent() {
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5"
+                className="inline-flex items-center gap-2 rounded-full border border-navy/15 px-6 py-3 text-sm font-semibold text-navy transition hover:border-navy/30 hover:bg-navy/5"
               >
                 See Our Services
               </Link>
