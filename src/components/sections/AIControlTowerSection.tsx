@@ -2,7 +2,6 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -144,12 +143,11 @@ export default function AIControlTowerSection() {
 
             <div className="relative lg:w-[45%]">
               <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-2xl">
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src="/assets/case-studies/bfsi-control-tower.jpg"
                   alt="AI Control Tower — unified command center for enterprise IT and risk operations"
-                  fill
-                  sizes="(min-width: 1024px) 480px, 100vw"
-                  className="object-cover"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">

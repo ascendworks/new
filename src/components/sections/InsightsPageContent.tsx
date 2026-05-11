@@ -2,7 +2,6 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -326,12 +325,11 @@ export default function InsightsPageContent() {
 
               <div className="relative lg:w-[45%]">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-2xl">
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src="/assets/case-studies/healthcare-ls.jpg"
                     alt="Enterprise team using ServiceNow workplace services"
-                    fill
-                    sizes="(min-width: 1024px) 480px, 100vw"
-                    className="object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
@@ -407,12 +405,11 @@ export default function InsightsPageContent() {
             <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
               <div className="relative order-2 lg:order-1 lg:w-[45%]">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src="/assets/case-studies/bfsi-control-tower.jpg"
                     alt="Infrastructure command center for supply chain visibility"
-                    fill
-                    sizes="(min-width: 1024px) 480px, 100vw"
-                    className="object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-gold/15 bg-navy/60 p-4 backdrop-blur-md">
@@ -585,12 +582,11 @@ export default function InsightsPageContent() {
 
               <div className="relative lg:w-[45%]">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-2xl">
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src="/assets/case-studies/logistics.jpg"
                     alt="Infrastructure workflow automation and orchestration"
-                    fill
-                    sizes="(min-width: 1024px) 480px, 100vw"
-                    className="object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-purple/20 bg-navy/70 p-4 backdrop-blur-md">
