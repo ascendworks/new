@@ -1,10 +1,10 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import {
-  ArrowRight, Lightning, Factory, Bank, Storefront,
+  ArrowRight, ArrowLeft, Lightning, Factory, Bank,
   Truck, Buildings, Flame, Heartbeat,
 } from "@phosphor-icons/react";
 
@@ -28,7 +28,6 @@ const cases = [
     iconColor: "text-orange-400",
     tagBg: "bg-orange-500/10 border-orange-500/25 text-orange-400",
     accentColor: "text-orange-400",
-    visual: "bg-gradient-to-br from-orange-900/40 via-red-950/60 to-navy",
   },
   {
     id: 2,
@@ -49,7 +48,6 @@ const cases = [
     iconColor: "text-teal-400",
     tagBg: "bg-teal-500/10 border-teal-500/25 text-teal-400",
     accentColor: "text-teal-400",
-    visual: "bg-gradient-to-br from-teal-950/50 via-cyan-950/40 to-navy",
   },
   {
     id: 3,
@@ -70,7 +68,6 @@ const cases = [
     iconColor: "text-gold",
     tagBg: "bg-gold/10 border-gold/25 text-gold",
     accentColor: "text-gold",
-    visual: "bg-gradient-to-br from-amber-950/50 via-yellow-950/40 to-navy",
   },
   {
     id: 4,
@@ -91,7 +88,6 @@ const cases = [
     iconColor: "text-purple",
     tagBg: "bg-purple/10 border-purple/25 text-purple",
     accentColor: "text-purple",
-    visual: "bg-gradient-to-br from-purple-950/50 via-violet-950/40 to-navy",
   },
 ];
 
@@ -101,57 +97,55 @@ function CaseCard({ c, i }: { c: typeof cases[number]; i: number }) {
   const Icon = c.icon;
 
   return (
-    <motion.div ref={ref} className="relative"
-      initial={{ opacity: 0, y: 28 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}>
-
+    <motion.div
+      ref={ref}
+      className="h-full"
+      initial={{ opacity: 0, y: 28 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+    >
       <div className={`group relative flex flex-col h-full rounded-2xl border bg-gradient-to-br ${c.gradient} ${c.border} bg-[rgba(9,15,82,0.6)] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl overflow-hidden`}>
-        {/* Ghost number */}
-        <span className={`font-display font-800 text-6xl ${c.accentColor} opacity-10 absolute top-3 right-4 leading-none select-none pointer-events-none`}>
-          {String(i + 1).padStart(2, "0")}
-        </span>
-
         {/* Icon + tag */}
         <div className="flex items-center gap-3 mb-4">
           <div className={`w-10 h-10 rounded-xl ${c.iconBg} flex items-center justify-center shrink-0`}>
-            <Icon size={18} weight="duotone" className={c.iconColor} />
+            <Icon size={20} weight="duotone" className={c.iconColor} />
           </div>
-          <span className={`text-[9px] font-700 uppercase tracking-widest px-2 py-0.5 rounded-full border ${c.tagBg}`}>
+          <span className={`text-[10px] font-700 uppercase tracking-widest px-2.5 py-1 rounded-full border ${c.tagBg}`}>
             {c.industry}
           </span>
         </div>
 
         {/* Client */}
-        <p className="text-slate text-[10px] uppercase tracking-widest mb-1.5">{c.client}</p>
+        <p className="text-slate text-[11px] uppercase tracking-widest mb-1.5">{c.client}</p>
 
         {/* Headline */}
-        <h3 className="font-display font-700 text-sm text-white leading-snug flex-1 mb-5">
+        <h3 className="font-display font-700 text-base text-white leading-snug mb-3">
           {c.headline}
         </h3>
 
+        {/* Description */}
+        <p className="text-slate text-sm leading-relaxed flex-1 mb-5">
+          {c.description}
+        </p>
+
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-1.5 pt-4 border-t border-white/8 mb-4">
+        <div className="grid grid-cols-3 gap-2 pt-4 border-t border-white/8 mb-4">
           {c.stats.map((s) => (
             <div key={s.label} className="flex flex-col gap-0.5">
-              <span className={`font-display font-800 text-lg leading-none ${c.accentColor}`}>{s.value}</span>
-              <span className="text-slate text-[9px] leading-tight">{s.label}</span>
+              <span className={`font-display font-800 text-xl leading-none ${c.accentColor}`}>{s.value}</span>
+              <span className="text-slate text-[10px] leading-tight mt-0.5">{s.label}</span>
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <Link href="/case-studies"
-          className={`flex items-center gap-1.5 text-[11px] font-600 ${c.accentColor} hover:gap-2.5 transition-all`}>
-          Read case study <ArrowRight size={11} weight="bold" />
+        <Link
+          href="/case-studies"
+          className={`flex items-center gap-1.5 text-xs font-600 ${c.accentColor} hover:gap-3 transition-all`}
+        >
+          Read case study <ArrowRight size={12} weight="bold" />
         </Link>
       </div>
-
-      {/* Side arrow connector — matches ProcessSection style */}
-      {i < cases.length - 1 && (
-        <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 items-center justify-center rounded-full bg-navy border border-white/12 shadow-md">
-          <ArrowRight size={12} className="text-slate" weight="bold" />
-        </div>
-      )}
     </motion.div>
   );
 }
@@ -159,6 +153,27 @@ function CaseCard({ c, i }: { c: typeof cases[number]; i: number }) {
 export default function CaseStudiesSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const updateScrollState = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  }, []);
+
+  useEffect(() => { updateScrollState(); }, [updateScrollState]);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>("[data-card]");
+    const step = card ? card.offsetWidth + 20 : 420;
+    el.scrollBy({ left: dir === "right" ? step : -step, behavior: "smooth" });
+    setTimeout(updateScrollState, 450);
+  };
 
   return (
     <section className="section-dark py-24 lg:py-32 relative overflow-hidden">
@@ -176,8 +191,10 @@ export default function CaseStudiesSection() {
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Heading */}
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }} className="mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }} className="mb-16"
+        >
           <span className="inline-block px-3 py-1 rounded-full border border-gold/30 text-gold text-xs font-600 uppercase tracking-widest mb-4">
             Case Studies
           </span>
@@ -199,9 +216,11 @@ export default function CaseStudiesSection() {
         </motion.div>
 
         {/* Summary bar */}
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 p-5 rounded-2xl border border-white/8 bg-white/3">
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 p-5 rounded-2xl border border-white/8 bg-white/3"
+        >
           {[
             { icon: Lightning, value: "$198M+", label: "Client savings documented", color: "text-gold" },
             { icon: Buildings, value: "4", label: "Industries featured", color: "text-teal" },
@@ -220,10 +239,52 @@ export default function CaseStudiesSection() {
           ))}
         </motion.div>
 
-        {/* Cards grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {cases.map((c, i) => (
-            <CaseCard key={c.id} c={c} i={i} />
+        {/* Carousel */}
+        <div className="relative">
+          {/* Left arrow */}
+          <button
+            type="button"
+            onClick={() => scroll("left")}
+            disabled={!canScrollLeft}
+            aria-label="Scroll left"
+            className="hidden sm:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-navy border border-white/15 shadow-lg items-center justify-center transition-all duration-200 disabled:opacity-20 disabled:cursor-not-allowed hover:border-gold/50 hover:bg-navy-light"
+          >
+            <ArrowLeft size={16} weight="bold" className="text-slate" />
+          </button>
+
+          {/* Scrollable row */}
+          <div
+            ref={scrollRef}
+            onScroll={updateScrollState}
+            className="flex gap-5 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory"
+          >
+            {cases.map((c, i) => (
+              <div
+                key={c.id}
+                data-card
+                className="snap-start shrink-0 w-[82vw] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]"
+              >
+                <CaseCard c={c} i={i} />
+              </div>
+            ))}
+          </div>
+
+          {/* Right arrow */}
+          <button
+            type="button"
+            onClick={() => scroll("right")}
+            disabled={!canScrollRight}
+            aria-label="Scroll right"
+            className="hidden sm:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-navy border border-white/15 shadow-lg items-center justify-center transition-all duration-200 disabled:opacity-20 disabled:cursor-not-allowed hover:border-gold/50 hover:bg-navy-light"
+          >
+            <ArrowRight size={16} weight="bold" className="text-slate" />
+          </button>
+        </div>
+
+        {/* Scroll indicators */}
+        <div className="flex items-center justify-center gap-2 mt-6">
+          {cases.map((_, i) => (
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/20" />
           ))}
         </div>
       </div>
