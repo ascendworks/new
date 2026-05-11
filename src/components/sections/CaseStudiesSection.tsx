@@ -101,58 +101,57 @@ function CaseCard({ c, i }: { c: typeof cases[number]; i: number }) {
   const Icon = c.icon;
 
   return (
-    <motion.div ref={ref}
-      initial={{ opacity: 0, y: 32 }} animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, delay: i * 0.08 }}>
-      <div className={`group relative flex flex-col h-full rounded-2xl border bg-gradient-to-br ${c.gradient} overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${c.border} bg-[rgba(9,15,82,0.6)]`}>
+    <motion.div ref={ref} className="relative"
+      initial={{ opacity: 0, y: 28 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}>
 
-        {/* Industry visual bar */}
-        <div className={`relative h-2 w-full ${c.visual} overflow-hidden`}>
-          <div className="absolute inset-0 opacity-60 bg-gradient-to-r from-transparent via-white/10 to-transparent
-            translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+      <div className={`group relative flex flex-col h-full rounded-2xl border bg-gradient-to-br ${c.gradient} ${c.border} bg-[rgba(9,15,82,0.6)] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl overflow-hidden`}>
+        {/* Ghost number */}
+        <span className={`font-display font-800 text-6xl ${c.accentColor} opacity-10 absolute top-3 right-4 leading-none select-none pointer-events-none`}>
+          {String(i + 1).padStart(2, "0")}
+        </span>
+
+        {/* Icon + tag */}
+        <div className="flex items-center gap-3 mb-4">
+          <div className={`w-10 h-10 rounded-xl ${c.iconBg} flex items-center justify-center shrink-0`}>
+            <Icon size={18} weight="duotone" className={c.iconColor} />
+          </div>
+          <span className={`text-[9px] font-700 uppercase tracking-widest px-2 py-0.5 rounded-full border ${c.tagBg}`}>
+            {c.industry}
+          </span>
         </div>
 
-        <div className="flex flex-col flex-1 p-6">
-          {/* Header */}
-          <div className="flex items-start justify-between mb-5 gap-3">
-            <div className={`w-11 h-11 rounded-xl ${c.iconBg} flex items-center justify-center shrink-0`}>
-              <Icon size={20} weight="duotone" className={c.iconColor} />
+        {/* Client */}
+        <p className="text-slate text-[10px] uppercase tracking-widest mb-1.5">{c.client}</p>
+
+        {/* Headline */}
+        <h3 className="font-display font-700 text-sm text-white leading-snug flex-1 mb-5">
+          {c.headline}
+        </h3>
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-1.5 pt-4 border-t border-white/8 mb-4">
+          {c.stats.map((s) => (
+            <div key={s.label} className="flex flex-col gap-0.5">
+              <span className={`font-display font-800 text-lg leading-none ${c.accentColor}`}>{s.value}</span>
+              <span className="text-slate text-[9px] leading-tight">{s.label}</span>
             </div>
-            <span className={`text-[10px] font-700 uppercase tracking-widest px-2.5 py-1 rounded-full border ${c.tagBg}`}>
-              {c.industry}
-            </span>
-          </div>
-
-          {/* Client */}
-          <p className="text-slate text-xs uppercase tracking-widest mb-2">{c.client}</p>
-
-          {/* Headline */}
-          <h3 className="font-display font-700 text-base text-white leading-snug mb-3">
-            {c.headline}
-          </h3>
-
-          {/* Description */}
-          <p className="text-slate text-sm leading-relaxed flex-1 mb-6">{c.description}</p>
-
-          {/* Stats row */}
-          <div className="grid grid-cols-3 gap-2 pt-4 border-t border-white/8 mb-5">
-            {c.stats.map((s) => (
-              <div key={s.label} className="flex flex-col gap-0.5">
-                <span className={`font-display font-800 text-xl leading-none ${c.accentColor}`}>
-                  {s.value}
-                </span>
-                <span className="text-slate text-[10px] leading-tight">{s.label}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <Link href="/case-studies"
-            className={`flex items-center gap-1.5 text-xs font-600 ${c.accentColor} hover:gap-3 transition-all`}>
-            Read case study <ArrowRight size={12} weight="bold" />
-          </Link>
+          ))}
         </div>
+
+        {/* CTA */}
+        <Link href="/case-studies"
+          className={`flex items-center gap-1.5 text-[11px] font-600 ${c.accentColor} hover:gap-2.5 transition-all`}>
+          Read case study <ArrowRight size={11} weight="bold" />
+        </Link>
       </div>
+
+      {/* Side arrow connector — matches ProcessSection style */}
+      {i < cases.length - 1 && (
+        <div className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 items-center justify-center rounded-full bg-navy border border-white/12 shadow-md">
+          <ArrowRight size={12} className="text-slate" weight="bold" />
+        </div>
+      )}
     </motion.div>
   );
 }
@@ -222,7 +221,7 @@ export default function CaseStudiesSection() {
         </motion.div>
 
         {/* Cards grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {cases.map((c, i) => (
             <CaseCard key={c.id} c={c} i={i} />
           ))}
