@@ -658,6 +658,48 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     ],
     crmTag: "platform-services",
   },
+  // ── K26 Announcements (May 5, 2026) — sourced from ServiceNow Newsroom ────────
+
+  {
+    id: "servicenow-otto-unified-ai",
+    title: "ServiceNow Otto: One AI Front Door to Execute Work Across the Entire Enterprise",
+    summary:
+      "ServiceNow unveiled Otto at Knowledge26, merging Now Assist, Moveworks, and enterprise search into a single AI interface that understands employee requests in natural language and orchestrates execution across departments and systems. Otto operates across any workflow, routing tasks to specialized AI agents while AI Control Tower enforces governance, permission-scoping, and full auditability. ServiceNow EmployeeWorks customers generated six deals exceeding $1M in net new ACV within the first month of launch.",
+    category: "agentic-ai",
+    type: "announcement",
+    date: "2026-05-05",
+    source: "ServiceNow Newsroom",
+    sourceUrl: "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-Otto-creates-the-unified-AI-experience-for-the-enterprise/default.aspx",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["ServiceNow Otto", "Now Assist", "Moveworks", "Unified AI", "Knowledge26"],
+    leadSignal: "high",
+    trending: true,
+    stats: [
+      { label: "Annual Platform Workflows", value: "100B+" },
+      { label: "Month-1 Enterprise Deals", value: "6 × $1M+ NNACV" },
+    ],
+    crmTag: "implementation-opportunity",
+  },
+  {
+    id: "servicenow-action-fabric-mcp",
+    title: "ServiceNow Action Fabric: Any AI Agent Can Now Execute Governed Enterprise Work via MCP",
+    summary:
+      "ServiceNow launched Action Fabric at Knowledge26, opening its governed workflow library to any external AI agent through an open Model Context Protocol (MCP) Server. Anthropic's Claude became the first design partner, connecting Claude Cowork directly to ServiceNow automated processes, approvals, and business rules — all enforced through AI Control Tower. IDC projects active AI agents to surge from 28.6 million in 2025 to over 2.2 billion by 2030, making governed interoperability the critical enterprise infrastructure layer.",
+    category: "platform",
+    type: "announcement",
+    date: "2026-05-05",
+    source: "ServiceNow Newsroom",
+    sourceUrl: "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-opens-its-full-system-of-action-to-every-AI-Agent-in-the-enterprise/default.aspx",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80&auto=format&fit=crop",
+    tags: ["Action Fabric", "MCP", "AI Agents", "Anthropic", "Claude", "Platform", "Knowledge26"],
+    leadSignal: "high",
+    trending: true,
+    stats: [
+      { label: "AI Agents Projected by 2030", value: "2.2B" },
+      { label: "AI Agents Today (2025)", value: "28.6M" },
+    ],
+    crmTag: "platform-services",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -683,5 +725,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-05-10";
+export const LAST_UPDATED = "2026-05-11";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
