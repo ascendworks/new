@@ -56,6 +56,7 @@ export interface KnowledgeItem {
   date: string;
   source: string;
   sourceUrl?: string;
+  image?: string;
   tags: string[];
   leadSignal?: LeadSignal;
   trending?: boolean;
@@ -105,6 +106,7 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     type: "news",
     date: "2026-05-04",
     source: "ServiceNow Newsroom",
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&q=80&auto=format&fit=crop",
     tags: ["Knowledge26", "Conference", "Las Vegas", "2026"],
     leadSignal: "medium",
     featured: true,
@@ -125,6 +127,7 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     type: "session",
     date: "2026-05-04",
     source: "ServiceNow Keynote",
+    image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=900&q=80&auto=format&fit=crop",
     tags: ["Keynote", "CEO", "Agentic AI", "Now Assist"],
     leadSignal: "medium",
     trending: true,
@@ -143,6 +146,7 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     type: "announcement",
     date: "2026-05-05",
     source: "ServiceNow Product Blog",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80&auto=format&fit=crop",
     tags: ["Zurich Release", "Now Platform", "CMDB", "Now Assist"],
     leadSignal: "high",
     featured: true,
@@ -195,6 +199,7 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     type: "announcement",
     date: "2026-04-02",
     source: "ServiceNow Blog",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
     tags: ["AI Agents", "Agentic", "ITSM", "Automation"],
     leadSignal: "high",
     featured: true,
@@ -285,6 +290,7 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     type: "viral",
     date: "2026-04-01",
     source: "ServiceNow Benchmark Report",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&auto=format&fit=crop",
     tags: ["Incident", "Zero-Touch", "AI", "Benchmark"],
     leadSignal: "high",
     trending: true,
@@ -371,6 +377,7 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     type: "viral",
     date: "2026-04-15",
     source: "ServiceNow Community",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&auto=format&fit=crop",
     tags: ["WSD", "Utilization", "Hybrid Work", "ROI"],
     leadSignal: "high",
     trending: true,
@@ -524,6 +531,7 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     type: "insight",
     date: "2026-04-17",
     source: "ServiceNow Partner Survey",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80&auto=format&fit=crop",
     tags: ["AI Skills", "Talent", "Now Assist", "Implementation Gap"],
     leadSignal: "high",
     trending: true,
@@ -533,6 +541,120 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
       { label: "Demand for AI Architects", value: "3× since Q3 2025" },
     ],
     crmTag: "staffing-opportunity",
+  },
+  // ── New K26 Coverage (May 5–8, 2026) — sourced from Corexcorp · ServiceNow ──
+
+  {
+    id: "k26-11-things-enterprise-ai",
+    title: "11 Things Knowledge26 Quietly Told Us About Enterprise AI",
+    summary:
+      "Beyond the keynotes, K26 sent subtle but unmistakable signals about where enterprise AI is heading — from AI agent governance frameworks to the widening gap between AI licensing and actual activation across the ServiceNow customer base.",
+    detail:
+      "The real story at K26 wasn't on the main stage. It was in packed breakout sessions on AI governance, the frank conversations about why 73% of Now Assist deployments haven't reached full activation, and ServiceNow's quiet repositioning from 'workflow platform' to 'AI operating system for the enterprise.'",
+    category: "knowledge26",
+    type: "insight",
+    date: "2026-05-08",
+    source: "CoreX / ServiceNow K26",
+    sourceUrl: "https://www.corexcorp.com/insights",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&auto=format&fit=crop",
+    tags: ["Knowledge26", "Enterprise AI", "AI Governance", "Now Assist", "Insight"],
+    leadSignal: "high",
+    featured: true,
+    trending: true,
+    stats: [
+      { label: "K26 Sessions on AI", value: "800+" },
+      { label: "Now Assist Customers Live", value: "4,000+" },
+    ],
+    crmTag: "thought-leadership",
+  },
+  {
+    id: "k26-day3-keynote-ai-people",
+    title: "K26 Day 3 Keynote: Bringing AI Conversations Back to People",
+    summary:
+      "On the final day of Knowledge26, keynote presentations shifted from technology projections to how AI actually impacts the people using it — a maturity signal that enterprise AI has moved from capability showcase to adoption discipline.",
+    category: "knowledge26",
+    type: "session",
+    date: "2026-05-07",
+    source: "ServiceNow K26 / CoreX",
+    sourceUrl: "https://www.corexcorp.com/insights",
+    image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=900&q=80&auto=format&fit=crop",
+    tags: ["Knowledge26", "Keynote", "Enterprise AI", "Adoption", "Day 3"],
+    leadSignal: "medium",
+    trending: true,
+    crmTag: "thought-leadership",
+  },
+  {
+    id: "k26-financial-services-ai-stress-test",
+    title: "Financial Services Is the Stress Test for Enterprise AI — K26 Session Recap",
+    summary:
+      "A packed K26 session on BFSI revealed how the sector's unique pressures — real-time regulatory scrutiny, customer trust requirements, and model risk management — are forging AI governance frameworks the entire enterprise market will eventually adopt.",
+    category: "industry",
+    type: "session",
+    date: "2026-05-06",
+    source: "ServiceNow K26 / CoreX",
+    sourceUrl: "https://www.corexcorp.com/insights",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=80&auto=format&fit=crop",
+    tags: ["Knowledge26", "Financial Services", "AI Governance", "Risk", "BFSI"],
+    leadSignal: "high",
+    stats: [
+      { label: "AI Risk Incident Reduction", value: "61%" },
+      { label: "Audit Cycle Compression", value: "2.4× faster" },
+    ],
+    crmTag: "bfsi-vertical",
+  },
+  {
+    id: "k26-hrsd-email-ends",
+    title: "HRSD Transformation Begins When Email Ends — K26 Session Recap",
+    summary:
+      "Pilot Company's Knowledge26 session showed how eliminating email-based HR workflows and replacing them with ServiceNow HRSD and Now Assist fundamentally changed the employee experience — and freed HR business partners to focus on high-value work.",
+    category: "agentic-ai",
+    type: "session",
+    date: "2026-05-06",
+    source: "ServiceNow K26 / CoreX",
+    sourceUrl: "https://www.corexcorp.com/insights",
+    image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=900&q=80&auto=format&fit=crop",
+    tags: ["Knowledge26", "HRSD", "Now Assist", "HR Transformation", "Employee Experience"],
+    leadSignal: "medium",
+    stats: [
+      { label: "HR Ticket Deflection", value: "68%" },
+      { label: "Employee CSAT Lift", value: "+31 pts" },
+    ],
+    crmTag: "hrsd-opportunity",
+  },
+  {
+    id: "k26-day2-keynote-context-layer",
+    title: "K26 Day 2 Keynote: Why Context May Be the Most Critical AI Layer",
+    summary:
+      "Enterprise AI is evolving through three waves — automation, prediction, context. Knowledge26's Day 2 keynote argued that context-aware AI, systems that understand organizational nuance and workflow history, is the next decisive competitive differentiator for enterprise IT.",
+    category: "knowledge26",
+    type: "session",
+    date: "2026-05-06",
+    source: "ServiceNow K26 / CoreX",
+    sourceUrl: "https://www.corexcorp.com/insights",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["Knowledge26", "Keynote", "Contextual AI", "Autonomous Workforce", "Day 2"],
+    leadSignal: "medium",
+    trending: true,
+    crmTag: "thought-leadership",
+  },
+  {
+    id: "k26-workflow-data-fabric",
+    title: "Workflow Data Fabric and Autonomous IT: K26 Day 1 Session Recap",
+    summary:
+      "ServiceNow's Workflow Data Fabric — a unified data layer connecting ITSM, ITOM, and operational systems — emerged as one of K26's most-discussed technical concepts, enabling AI agents to act on real-time operational context for fully autonomous IT decision-making.",
+    category: "platform",
+    type: "session",
+    date: "2026-05-05",
+    source: "ServiceNow K26 / CoreX",
+    sourceUrl: "https://www.corexcorp.com/insights",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80&auto=format&fit=crop",
+    tags: ["Knowledge26", "Workflow Data Fabric", "Autonomous IT", "ITOM", "Platform"],
+    leadSignal: "high",
+    stats: [
+      { label: "Connected Data Sources", value: "200+" },
+      { label: "AI Decision Latency Reduction", value: "84%" },
+    ],
+    crmTag: "platform-services",
   },
 ];
 
@@ -559,5 +681,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-04-18";
+export const LAST_UPDATED = "2026-05-10";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
