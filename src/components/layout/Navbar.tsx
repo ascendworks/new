@@ -26,6 +26,7 @@ const company = [
   { label: "Case Studies", href: "/case-studies" },
   { label: "Certifications & Partners", href: "/partners" },
   { label: "Careers", href: "/careers", badge: "Hiring" },
+  { label: "The Opportunity", href: "/careers/opportunity", badge: "Open" },
 ];
 
 type DropdownKey = "services" | "industries" | "company" | null;
