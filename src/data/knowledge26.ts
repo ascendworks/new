@@ -56,6 +56,8 @@ export interface KnowledgeItem {
   date: string;
   source: string;
   sourceUrl?: string;
+  /** Internal route slug — when set, card links to /insights/{pageSlug} instead of sourceUrl */
+  pageSlug?: string;
   image?: string;
   tags: string[];
   leadSignal?: LeadSignal;
@@ -546,16 +548,16 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
 
   {
     id: "k26-11-things-enterprise-ai",
-    title: "11 Things Knowledge26 Quietly Told Us About Enterprise AI",
+    title: "The Knowledge26 2026 Intelligence Brief: Enterprise AI Signals That Matter",
     summary:
-      "Beyond the keynotes, K26 sent subtle but unmistakable signals about where enterprise AI is heading — from AI agent governance frameworks to the widening gap between AI licensing and actual activation across the ServiceNow customer base.",
+      "Beyond the keynotes, K26 sent unmistakable signals about where enterprise AI is heading — from AI agent governance frameworks to the widening gap between AI licensing and actual activation. Here is what IT leadership needs to act on now.",
     detail:
-      "The real story at K26 wasn't on the main stage. It was in packed breakout sessions on AI governance, the frank conversations about why 73% of Now Assist deployments haven't reached full activation, and ServiceNow's quiet repositioning from 'workflow platform' to 'AI operating system for the enterprise.'",
+      "The real story at K26 wasn't on the main stage. It was in packed breakout sessions on AI governance, the frank conversations about why 73% of Now Assist deployments haven't reached full activation, and ServiceNow's repositioning from 'workflow platform' to 'AI operating system for the enterprise.'",
     category: "knowledge26",
     type: "insight",
     date: "2026-05-08",
-    source: "CoreX / ServiceNow K26",
-    sourceUrl: "https://www.corexcorp.com/insights",
+    source: "AscendWorksNow Editorial",
+    pageSlug: "knowledge26-2026-intelligence-brief",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&auto=format&fit=crop",
     tags: ["Knowledge26", "Enterprise AI", "AI Governance", "Now Assist", "Insight"],
     leadSignal: "high",

@@ -42,12 +42,13 @@ function CatPill({ cat, xs }: { cat: KnowledgeItem["category"]; xs?: boolean }) 
 // ── Hero / featured card (Corexcorp-style: image left, content right) ─────────
 function HeroCard({ item }: { item: KnowledgeItem }) {
   const c = CATEGORIES[item.category];
-  const href = item.sourceUrl ?? "/insights";
+  const isInternal = !!item.pageSlug;
+  const href = item.pageSlug ? `/insights/${item.pageSlug}` : (item.sourceUrl ?? "/insights");
   return (
     <motion.a
       href={href}
-      target={item.sourceUrl ? "_blank" : undefined}
-      rel={item.sourceUrl ? "noopener noreferrer" : undefined}
+      target={isInternal ? undefined : (item.sourceUrl ? "_blank" : undefined)}
+      rel={isInternal ? undefined : (item.sourceUrl ? "noopener noreferrer" : undefined)}
       initial={{ opacity: 0, y: 32 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.65, ease }}
@@ -105,12 +106,13 @@ function HeroCard({ item }: { item: KnowledgeItem }) {
 // ── Grid insight card (Corexcorp: image top, content below) ───────────────────
 function GridCard({ item, delay }: { item: KnowledgeItem; delay: number }) {
   const c = CATEGORIES[item.category];
-  const href = item.sourceUrl ?? "/insights";
+  const isInternal = !!item.pageSlug;
+  const href = item.pageSlug ? `/insights/${item.pageSlug}` : (item.sourceUrl ?? "/insights");
   return (
     <motion.a
       href={href}
-      target={item.sourceUrl ? "_blank" : undefined}
-      rel={item.sourceUrl ? "noopener noreferrer" : undefined}
+      target={isInternal ? undefined : (item.sourceUrl ? "_blank" : undefined)}
+      rel={isInternal ? undefined : (item.sourceUrl ? "noopener noreferrer" : undefined)}
       initial={{ opacity: 0, y: 28 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.55, delay, ease }}
