@@ -145,8 +145,8 @@ export default function AIControlTowerSection() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-2xl">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/assets/case-studies/bfsi-control-tower.jpg"
-                  alt="AI Control Tower — unified command center for enterprise IT and risk operations"
+                  src="/assets/case-studies/banking-ai.jpg"
+                  alt="AI Control Tower — real-time analytics dashboard for enterprise risk and compliance operations"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
