@@ -700,6 +700,43 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     ],
     crmTag: "platform-services",
   },
+  // ── Post-K26 Insights (May 12–15, 2026) — sourced from CoreX ────────────────
+
+  {
+    id: "ai-gold-rush-over-operations-matter",
+    title: "The AI Gold Rush Is Over. Operations Matter Now.",
+    summary:
+      "Enterprise AI success is shifting from technical delivery milestones to measured operational outcomes — a fundamental change in how implementation partners must engage. ServiceNow's AI Control Tower provides the governance layer, but the organizations winning with AI are those combining advisory services, platform monitoring, and workflow friction identification before automation amplifies existing problems. Hitachi Energy's 25% ticket volume reduction through AI-powered incident summarization and Microsoft Teams integration illustrates how operational-first adoption builds lasting organizational trust.",
+    category: "agentic-ai",
+    type: "trend",
+    date: "2026-05-12",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/the-ai-gold-rush-is-over.-operations-matter-now",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["AI Governance", "AI Control Tower", "Operations", "Implementation", "Now Assist"],
+    leadSignal: "high",
+    trending: true,
+    stats: [
+      { label: "Ticket Volume Reduction (Hitachi Energy)", value: "25%" },
+    ],
+    crmTag: "advisory-opportunity",
+  },
+  {
+    id: "k26-10-actions-enterprises-post-k26",
+    title: "10 Actions Enterprises Should Take After Knowledge 26",
+    summary:
+      "Most Knowledge26 value evaporates in the weeks after the conference unless organizations move quickly from inspiration to operational discipline. CoreX's post-event playbook prioritizes incremental readiness over reinvention: establish lightweight AI governance teams before departments act independently, audit workflows employees quietly dread, strengthen CMDB data quality, consolidate intake channels, and solve one meaningful operational problem deeply before attempting enterprise-wide transformation. The organizations that benefit most from K26 will be those making thoughtful, measurable improvements that build momentum.",
+    category: "knowledge26",
+    type: "insight",
+    date: "2026-05-15",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/12-actions-enterprises-should-take-after-knowledge-26",
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&q=80&auto=format&fit=crop",
+    tags: ["Knowledge26", "Post-K26", "AI Governance", "Operational Readiness", "CMDB"],
+    leadSignal: "high",
+    trending: true,
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -725,5 +762,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-05-11";
+export const LAST_UPDATED = "2026-05-15";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
