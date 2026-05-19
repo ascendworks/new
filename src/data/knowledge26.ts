@@ -737,6 +737,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     trending: true,
     crmTag: "advisory-opportunity",
   },
+  // ── Post-K26 Insights (May 19, 2026) — sourced from CoreX ───────────────────
+
+  {
+    id: "servicenow-irm-next-level-risk",
+    title: "Is Your Business Ready for Better Risk Management? ServiceNow IRM Explained",
+    summary:
+      "ServiceNow Integrated Risk Management advances traditional GRC into operational risk by embedding automated control monitoring, CMDB-driven impact modeling, and continuous authorization directly into daily business workflows. Unlike legacy GRC tools that rely on periodic snapshots, the unified Now Platform enables dynamic risk scoring and real-time evidence collection across ITSM, Security Operations, and third-party integrations. Organizations must first establish CMDB health, clear accountability structures, and an entity framework to unlock IRM's full potential — and to be positioned for AI-driven risk capabilities arriving in future releases.",
+    category: "platform",
+    type: "insight",
+    date: "2026-05-19",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/is-your-business-ready-for-next-level-risk-management",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80&auto=format&fit=crop",
+    tags: ["IRM", "GRC", "Risk Management", "CMDB", "Security Operations", "Third-Party Risk"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -762,5 +779,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-05-15";
+export const LAST_UPDATED = "2026-05-19";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
