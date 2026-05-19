@@ -192,11 +192,7 @@ export default function InsightsSection() {
           <div>
             <div className="flex flex-wrap items-center gap-3 mb-4">
               <span className="inline-block px-3 py-1 rounded-full border border-gold/30 text-gold text-xs font-600 uppercase tracking-widest">
-                Knowledge26 Insights
-              </span>
-              <span className="flex items-center gap-1.5 text-[11px] text-slate-500">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal animate-pulse" />
-                Updated every 48h · ServiceNow · LinkedIn · Corexcorp
+                Insights
               </span>
             </div>
             <h2 className="font-display font-800 text-4xl md:text-5xl text-white leading-tight">
@@ -244,7 +240,7 @@ export default function InsightsSection() {
           className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10"
         >
           <p className="text-slate/60 text-xs">
-            Sourced from ServiceNow Newsroom · LinkedIn · Corexcorp · Gartner · IDC · McKinsey
+            Enterprise IT intelligence curated by AscendWorks
           </p>
           <Link
             href="/insights"

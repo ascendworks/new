@@ -327,8 +327,8 @@ export default function InsightsPageContent() {
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-2xl">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/assets/case-studies/healthcare-ls.jpg"
-                    alt="Enterprise team using ServiceNow workplace services"
+                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80&auto=format&fit=crop"
+                    alt="Modern enterprise workplace — open-plan office with collaborative spaces"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
@@ -407,8 +407,8 @@ export default function InsightsPageContent() {
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/assets/case-studies/bfsi-control-tower.jpg"
-                    alt="Infrastructure command center for supply chain visibility"
+                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format&fit=crop"
+                    alt="Enterprise data center — server infrastructure and network operations"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent" />
@@ -584,8 +584,8 @@ export default function InsightsPageContent() {
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-2xl">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/assets/case-studies/logistics.jpg"
-                    alt="Infrastructure workflow automation and orchestration"
+                    src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80&auto=format&fit=crop"
+                    alt="Developer environment — code automation and infrastructure orchestration"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />

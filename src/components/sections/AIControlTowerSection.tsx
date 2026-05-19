@@ -145,7 +145,7 @@ export default function AIControlTowerSection() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-2xl">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/assets/case-studies/banking-ai.jpg"
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80&auto=format&fit=crop"
                   alt="AI Control Tower — real-time analytics dashboard for enterprise risk and compliance operations"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
