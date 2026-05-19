@@ -325,19 +325,31 @@ export default function InsightsPageContent() {
 
               <div className="relative lg:w-[45%]">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-2xl">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80&auto=format&fit=crop"
-                    alt="Modern enterprise workplace — open-plan office with collaborative spaces"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="grid grid-cols-4 gap-2">
+                  {/* WSD Module Hub Infographic */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white to-teal/8 flex flex-col items-center justify-center gap-4 p-6">
+                    <div className="flex items-center gap-2 rounded-full bg-navy px-4 py-1.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-teal animate-pulse" />
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-white">ServiceNow WSD · One Portal</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3 w-full">
+                      {[
+                        { Icon: CalendarBlank, num: "01", label: "Reservation Mgmt",  ring: "border-teal/30 bg-teal/6",     color: "text-teal" },
+                        { Icon: MapPin,        num: "02", label: "Space Mapping",      ring: "border-gold/30 bg-gold/6",     color: "text-gold" },
+                        { Icon: Wrench,        num: "03", label: "Case Management",    ring: "border-purple/30 bg-purple/6", color: "text-purple" },
+                        { Icon: UserCircle,    num: "04", label: "Visitor Management", ring: "border-amber/30 bg-amber/6",   color: "text-amber" },
+                      ].map((m) => (
+                        <div key={m.num} className={`rounded-xl border p-3 ${m.ring}`}>
+                          <m.Icon size={18} className={`mb-1.5 ${m.color}`} weight="duotone" />
+                          <p className="text-[10px] font-bold text-slate-400">{m.num}</p>
+                          <p className="text-[12px] font-bold text-navy leading-tight">{m.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-4 gap-2 w-full">
                       {wsdStats.map((s) => (
-                        <div key={s.label} className="rounded-xl border border-white/10 bg-navy/80 p-2.5 text-center backdrop-blur-sm">
-                          <div className="font-display text-xl font-extrabold text-gold">{s.value}</div>
-                          <div className="mt-0.5 text-[9px] leading-tight text-slate-light">{s.label}</div>
+                        <div key={s.label} className="rounded-xl border border-slate-200 bg-white p-2 text-center shadow-sm">
+                          <div className="font-display text-lg font-extrabold text-navy">{s.value}</div>
+                          <div className="mt-0.5 text-[9px] leading-tight text-slate-500">{s.label}</div>
                         </div>
                       ))}
                     </div>
@@ -405,19 +417,33 @@ export default function InsightsPageContent() {
             <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
               <div className="relative order-2 lg:order-1 lg:w-[45%]">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format&fit=crop"
-                    alt="Enterprise data center — server infrastructure and network operations"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-gold/15 bg-navy/60 p-4 backdrop-blur-md">
-                    <p className="mb-1 text-[10px] uppercase tracking-wider text-slate">Market Signal · 2026</p>
-                    <p className="font-display text-base font-bold leading-snug text-white">
-                      "Lead times now swing by quarters, not weeks."
-                    </p>
-                    <p className="mt-1 text-xs text-gold">AscendWorks Infrastructure Advisory</p>
+                  {/* Infrastructure Shortage Chart Infographic */}
+                  <div className="absolute inset-0 bg-navy flex flex-col justify-center gap-4 p-7">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate">Component Availability Index · 2026</p>
+                    {[
+                      { Icon: Cpu,        label: "GPUs",   pct: "12%", w: "w-[12%]", bar: "bg-red",    txt: "text-red" },
+                      { Icon: HardDrives, label: "DRAM",   pct: "24%", w: "w-[24%]", bar: "bg-red/70", txt: "text-red" },
+                      { Icon: Package,    label: "SSDs",   pct: "41%", w: "w-[41%]", bar: "bg-amber",  txt: "text-amber" },
+                      { Icon: Lightning,  label: "Optics", pct: "29%", w: "w-[29%]", bar: "bg-red/80", txt: "text-red" },
+                    ].map((c) => (
+                      <div key={c.label}>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <div className="flex items-center gap-1.5">
+                            <c.Icon size={11} className={c.txt} weight="duotone" />
+                            <span className="text-xs font-semibold text-slate-light">{c.label}</span>
+                          </div>
+                          <span className={`text-[11px] font-bold ${c.txt}`}>{c.pct} available</span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-white/10">
+                          <div className={`h-full rounded-full ${c.bar} ${c.w}`} />
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-1 rounded-xl border border-gold/20 bg-gold/8 p-3">
+                      <p className="text-[10px] uppercase tracking-wider text-slate mb-1">Market Signal · 2026</p>
+                      <p className="text-sm font-bold text-white leading-snug">"Lead times now swing by quarters, not weeks."</p>
+                      <p className="mt-1 text-[11px] text-gold">AscendWorks Infrastructure Advisory</p>
+                    </div>
                   </div>
                 </div>
 
@@ -582,17 +608,29 @@ export default function InsightsPageContent() {
 
               <div className="relative lg:w-[45%]">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-2xl">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80&auto=format&fit=crop"
-                    alt="Developer environment — code automation and infrastructure orchestration"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-purple/20 bg-navy/70 p-4 backdrop-blur-md">
-                    <p className="font-display text-sm font-bold text-white">
-                      Zero manual change requests — from server order to CMDB, fully automated.
-                    </p>
+                  {/* IaaS Automation Pipeline Infographic */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white to-purple/6 flex flex-col items-center justify-center gap-2 p-6">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-purple mb-1">Zero-Touch IaaS Pipeline</p>
+                    {[
+                      { step: "01", label: "Server Request", sub: "ServiceNow Portal",  accent: "border-gold/30 bg-gold/6 text-gold" },
+                      { step: "02", label: "Auto Approval",  sub: "Change Management",  accent: "border-teal/30 bg-teal/6 text-teal" },
+                      { step: "03", label: "VM Provision",   sub: "VMware Aria",         accent: "border-purple/30 bg-purple/6 text-purple" },
+                      { step: "04", label: "CMDB Register",  sub: "Auto-Discovery",     accent: "border-amber/30 bg-amber/6 text-amber" },
+                      { step: "05", label: "Ticket Closed",  sub: "Zero Manual Steps",  accent: "border-red/20 bg-red/6 text-red" },
+                    ].map((s) => (
+                      <div key={s.step} className="flex items-center gap-3 w-full">
+                        <div className={`flex-shrink-0 h-8 w-8 rounded-full border flex items-center justify-center text-[10px] font-extrabold ${s.accent}`}>
+                          {s.step}
+                        </div>
+                        <div className="flex-1 flex items-center justify-between rounded-lg border border-slate-100 bg-white px-3 py-1.5 shadow-sm">
+                          <span className="text-[12px] font-bold text-navy">{s.label}</span>
+                          <span className="text-[10px] text-slate-400">{s.sub}</span>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="mt-1 w-full rounded-lg border border-purple/20 bg-purple/5 px-4 py-2 text-center">
+                      <p className="text-[11px] font-semibold text-navy">Zero manual change requests — server order to CMDB, fully automated.</p>
+                    </div>
                   </div>
                 </div>
               </div>

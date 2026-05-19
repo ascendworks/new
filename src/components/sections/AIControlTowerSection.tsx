@@ -143,19 +143,31 @@ export default function AIControlTowerSection() {
 
             <div className="relative lg:w-[45%]">
               <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-2xl">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80&auto=format&fit=crop"
-                  alt="AI Control Tower — real-time analytics dashboard for enterprise risk and compliance operations"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
+                {/* AI Control Tower Dashboard Infographic */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-navy/6 flex flex-col justify-center gap-4 p-7">
+                  <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400">AI Control Tower · Real-Time View</p>
                   <div className="grid grid-cols-3 gap-2">
                     {outcomes.map((o) => (
-                      <div key={o.label} className="rounded-xl border border-white/10 bg-navy/80 p-2.5 text-center backdrop-blur-sm">
-                        <div className={`font-display text-xl font-extrabold ${o.color}`}>{o.value}</div>
-                        <div className="mt-0.5 text-[9px] leading-tight text-slate-light">{o.label}</div>
+                      <div key={o.label} className="rounded-xl border border-slate-100 bg-white p-3 text-center shadow-sm">
+                        <div className={`font-display text-2xl font-extrabold leading-none ${o.color}`}>{o.value}</div>
+                        <div className="mt-1 text-[9px] leading-tight text-slate-500">{o.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="space-y-1.5">
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400 mb-2">Live Risk Signals</p>
+                    {[
+                      { label: "P1 Incident Risk Score", status: "AI Monitoring",   dot: "bg-teal" },
+                      { label: "Change Request Queue",   status: "Auto-Scored",     dot: "bg-gold" },
+                      { label: "Compliance Evidence",    status: "Collected",       dot: "bg-teal" },
+                      { label: "Regulatory Report",      status: "Ready to Export", dot: "bg-purple" },
+                    ].map((r) => (
+                      <div key={r.label} className="flex items-center justify-between rounded-lg border border-slate-100 bg-white px-3 py-1.5 shadow-sm">
+                        <div className="flex items-center gap-2">
+                          <span className={`h-1.5 w-1.5 rounded-full ${r.dot} animate-pulse flex-shrink-0`} />
+                          <span className="text-[10px] font-medium text-navy">{r.label}</span>
+                        </div>
+                        <span className="text-[9px] text-slate-400 flex-shrink-0 ml-1">{r.status}</span>
                       </div>
                     ))}
                   </div>
