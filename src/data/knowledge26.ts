@@ -754,6 +754,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "high",
     crmTag: "advisory-opportunity",
   },
+  // ── Post-K26 Security Insights (May 21, 2026) — sourced from CoreX ───────────
+
+  {
+    id: "vulnerability-scanning-servicenow-cmdb",
+    title: "How to Make the Most of Vulnerability Scanning in ServiceNow",
+    summary:
+      "Ingesting vulnerability data from Qualys, Tenable, or Rapid7 into ServiceNow is the easy part — meaningful risk reduction requires mapping findings to CMDB-tracked configuration items with defined service owners, so that severity rankings reflect actual business impact rather than raw scanner volume. Organizations that align vulnerability workflows with service ownership, assignment logic, and exception handling can consistently prioritize and act on what matters most. Maturity is measured not by deployment speed but by the ability to reduce demonstrable risk through iterative refinement of CMDB relationships and business-aligned reporting.",
+    category: "itsm",
+    type: "insight",
+    date: "2026-05-21",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/how-to-make-the-most-of-vulnerability-scanning-in-servicenow",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&auto=format&fit=crop",
+    tags: ["Vulnerability Management", "CMDB", "SecOps", "Security Operations", "Risk"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -779,5 +796,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-05-19";
+export const LAST_UPDATED = "2026-05-23";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
