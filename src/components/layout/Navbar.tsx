@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { CaretDown, List, X, ArrowRight, Fire } from "@phosphor-icons/react";
+import { ArrowRight, CaretDown, List, X, Fire } from "@phosphor-icons/react";
 
 const services = [
   { label: "ServiceNow Implementation", desc: "Full-lifecycle deployment in 6 weeks", href: "/services/servicenow" },
@@ -48,7 +48,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-navy/95 backdrop-blur-md shadow-lg shadow-black/20 border-b border-gold/10"
+          ? "bg-navy/95 backdrop-blur-md border-b border-gold/10"
           : "bg-transparent"
       }`}
     >
@@ -201,10 +201,10 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/contact"
-            className="flex items-center gap-2 px-5 py-2.5 bg-gold text-navy text-sm font-600 rounded-xl hover:bg-gold-light transition-colors"
+            className="group flex items-center gap-2 px-5 py-2.5 bg-gold text-navy font-display font-700 text-sm rounded-xl hover:bg-gold-light transition-all duration-200"
           >
             Talk to an Expert
-            <ArrowRight size={14} weight="bold" />
+            <ArrowRight size={14} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
 
@@ -275,10 +275,11 @@ export default function Navbar() {
           <div className="border-t border-white/10 my-4" />
           <Link
             href="/contact"
-            className="flex items-center justify-center gap-2 w-full py-3 bg-gold text-navy font-600 rounded-xl text-sm"
+            className="flex items-center justify-center gap-2 px-5 py-3 bg-gold text-navy font-display font-700 text-sm rounded-xl hover:bg-gold-light transition-all duration-200"
             onClick={() => setMobileOpen(false)}
           >
-            Talk to an Expert <ArrowRight size={14} weight="bold" />
+            Talk to an Expert
+            <ArrowRight size={14} weight="bold" />
           </Link>
         </div>
       )}
