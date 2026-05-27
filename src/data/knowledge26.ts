@@ -771,6 +771,30 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "high",
     crmTag: "advisory-opportunity",
   },
+  // ── Post-K26 Security & Governance Analysis (May 27, 2026) — sourced from ERP Today ──
+
+  {
+    id: "servicenow-autonomous-security-risk-launch",
+    title: "ServiceNow Autonomous Security & Risk: How Armis + Veza Build the Enterprise AI Governance Stack",
+    summary:
+      "ServiceNow completed its pivot from workflow platform to enterprise AI governance layer at Knowledge26 by launching Autonomous Security & Risk — merging Armis's agentless asset intelligence (spanning IT, OT, IoT, and edge devices) with Veza's access graph that maps every human and non-human identity permission in real time. The expanded AI Control Tower now operates across five dimensions — Discover, Observe, Govern, Secure, and Measure — with 30 enterprise integrations and real-time containment that shuts down unauthorized agent activity immediately. Early adopters report 97% reduction in threat containment time, elimination of 96% of dormant non-human identities, and 85% faster compliance gap closure; the security and risk business crossed $1 billion in annual contract value at launch.",
+    category: "platform",
+    type: "announcement",
+    date: "2026-05-27",
+    source: "ERP Today / ServiceNow Newsroom",
+    sourceUrl: "https://erp.today/servicenow-ai-security-governance-knowledge-2026/",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80&auto=format&fit=crop",
+    tags: ["Autonomous Security", "Armis", "Veza", "AI Control Tower", "Identity Governance", "Knowledge26", "SecOps"],
+    leadSignal: "high",
+    trending: true,
+    stats: [
+      { label: "Security & Risk ACV", value: "$1B+" },
+      { label: "Threat Containment Reduction", value: "97%" },
+      { label: "Dormant Identities Eliminated", value: "96%" },
+      { label: "Control Tower Integrations", value: "30 enterprise" },
+    ],
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -796,5 +820,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-05-23";
+export const LAST_UPDATED = "2026-05-27";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
