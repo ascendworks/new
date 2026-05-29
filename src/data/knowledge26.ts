@@ -795,6 +795,38 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     ],
     crmTag: "advisory-opportunity",
   },
+  // ── Post-K26 Security & Platform Insights (May 27–29, 2026) — sourced from CoreX ──
+
+  {
+    id: "servicenow-security-activity-vs-insight",
+    title: "The Difference Between Security Activity and Security Insight",
+    summary:
+      "Organizations implementing ServiceNow Security Incident Response often focus on building executive dashboards, but raw data visibility alone does not deliver meaningful risk intelligence. True value emerges when consistent processes, standardized incident categorization, and disciplined data capture transform activity metrics into actionable insight that guides strategic decision-making. Security leaders must invest in process maturity — not just tooling — to move beyond reporting what happened toward understanding what it means.",
+    category: "itsm",
+    type: "insight",
+    date: "2026-05-27",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/difference-security-activity-insight",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&auto=format&fit=crop",
+    tags: ["Security Incident Response", "SecOps", "ServiceNow", "SIEM", "NIST", "Risk Intelligence", "Dashboards"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
+  {
+    id: "corex-jay-wigard-innovation-future-tech",
+    title: "How Jay Wigard Approaches Innovation and the Future of Technology",
+    summary:
+      "CoreX Global Head of Innovation Jay Wigard argues that enterprise technology must prioritize human needs over raw capability — and that conversational and agentic AI, including ServiceNow Otto, succeeds precisely because it removes the friction of navigating complex service catalogs. Organizations that lead with human-centered design will extract more durable value from AI investments than those chasing technological trends. Wigard's framework positions AI as a means of radical simplification rather than a source of new complexity.",
+    category: "agentic-ai",
+    type: "insight",
+    date: "2026-05-29",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/how-jay-wigard-approaches-innovation-and-the-future-of-technology",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["ServiceNow Otto", "Agentic AI", "Human-Centered Design", "Innovation", "Conversational AI", "Technology Leadership"],
+    leadSignal: "medium",
+    crmTag: "thought-leadership",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -820,5 +852,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-05-27";
+export const LAST_UPDATED = "2026-05-29";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
