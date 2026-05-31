@@ -827,6 +827,29 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "medium",
     crmTag: "thought-leadership",
   },
+  // ── Post-K26 Autonomous Workforce Coverage (May 28, 2026) — sourced from ERP Today ──
+
+  {
+    id: "k26-otto-autonomous-workforce-frontline",
+    title: "ServiceNow Otto Targets Frontline Workers: Governed AI Reaches Operational Teams",
+    summary:
+      "ServiceNow's Knowledge26 second wave positions Otto as the AI interface for everyday workers — not just IT staff — combining Now Assist, Moveworks, and Autonomous Workforce specialists across IT, HR, CRM, security, and finance. The L1 Service Desk AI Specialist achieves 99% faster case resolution while handling more than 90% of employee technology requests autonomously, with all agent actions governed by AI Control Tower policies and full auditability. CIOs should note that successful deployment now requires clean data foundations, accurate knowledge bases, and codified approval logic before agentic workflows can execute reliably at scale.",
+    category: "agentic-ai",
+    type: "announcement",
+    date: "2026-05-28",
+    source: "ERP Today / ServiceNow",
+    sourceUrl: "https://erp.today/servicenow-otto-governed-ai-frontline-knowledge-2026/",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["ServiceNow Otto", "Autonomous Workforce", "Frontline Workers", "Agentic AI", "Knowledge26", "AI Governance"],
+    leadSignal: "high",
+    trending: true,
+    stats: [
+      { label: "IT Case Resolution Speed", value: "99% faster" },
+      { label: "Employee IT Requests Autonomous", value: "90%+" },
+      { label: "Cases Resolved Without Reassignment", value: "91%" },
+    ],
+    crmTag: "implementation-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -852,5 +875,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-05-29";
+export const LAST_UPDATED = "2026-05-31";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
