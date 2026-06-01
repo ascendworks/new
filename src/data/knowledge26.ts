@@ -827,6 +827,24 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "medium",
     crmTag: "thought-leadership",
   },
+  // ── Ecosystem Partnerships (May 28, 2026) ────────────────────────────────────
+
+  {
+    id: "wipro-servicenow-agentic-ai-partnership",
+    title: "Wipro Expands ServiceNow Partnership to Embed Agentic AI Across IT, HR, and Procurement",
+    summary:
+      "Wipro and ServiceNow deepened their collaboration on May 28 to integrate Wipro Intelligence™ with the ServiceNow AI Platform, embedding governed agentic workflows across IT, HR, procurement, and cybersecurity. The partnership introduces production-ready AI solutions — including SmartProcure for procurement automation, Telco Autonomous Networks for AI-driven service operations, and Cyber Transform for security incident response — moving enterprises beyond pilot programs to governed, at-scale AI execution. For CIOs evaluating agentic AI deployment partners, the announcement signals that major systems integrators are now productizing ServiceNow-native AI offerings rather than delivering bespoke implementations.",
+    category: "agentic-ai",
+    type: "announcement",
+    date: "2026-05-28",
+    source: "Wipro / ServiceNow",
+    sourceUrl: "https://www.wipro.com/newsroom/press-releases/2026/wipro-expands-servicenow-partnership-to-embed-agentic-ai-workflows-across-core-enterprise-functions/",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["Wipro", "Partnership", "Agentic AI", "ServiceNow AI Platform", "Procurement Automation", "Cybersecurity"],
+    leadSignal: "medium",
+    crmTag: "implementation-opportunity",
+  },
+
   // ── Post-K26 Autonomous Workforce Coverage (May 28, 2026) — sourced from ERP Today ──
 
   {
@@ -875,5 +893,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-05-31";
+export const LAST_UPDATED = "2026-06-01";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
