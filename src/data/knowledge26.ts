@@ -868,6 +868,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     ],
     crmTag: "implementation-opportunity",
   },
+  // ── Partner Intelligence (June 2, 2026) — sourced from CoreX ─────────────────
+
+  {
+    id: "enterprise-buyers-servicenow-partners-ai-era",
+    title: "What Enterprise Buyers Want from ServiceNow Partners in the AI Era",
+    summary:
+      "Enterprise buyers are increasingly selecting ServiceNow partners based on independent perspective and operational insight rather than technical execution speed alone — a shift accelerated by AI's ability to amplify the cost of flawed operational assumptions at scale. The most valued partners extend well beyond initial deployment into sustained advisory engagement, with business context interpretation becoming the primary differentiator as technical execution grows commoditized. CIOs should evaluate implementation partners on willingness to question requirements, discover underlying workflow problems, and build lasting internal capability rather than simply fulfilling defined project scopes.",
+    category: "staffing",
+    type: "insight",
+    date: "2026-06-02",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/what-enterprise-buyers-actually-want-from-servicenow-partners-in-the-ai-era",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80&auto=format&fit=crop",
+    tags: ["ServiceNow Partners", "AI Era", "Enterprise Buyers", "Advisory", "Implementation", "Partner Selection"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -893,5 +910,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-06-01";
+export const LAST_UPDATED = "2026-06-03";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
