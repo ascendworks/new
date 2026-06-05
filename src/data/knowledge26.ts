@@ -885,6 +885,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "high",
     crmTag: "advisory-opportunity",
   },
+  // ── Operational Readiness (June 4, 2026) — sourced from CoreX ────────────────
+
+  {
+    id: "ai-operational-reality",
+    title: "What Is AI Operational Reality?",
+    summary:
+      "Enterprise AI success depends far less on technology capability than on operational maturity — the actual condition of workflows, data quality, governance, and process ownership. Unlike human employees who adapt around broken processes, AI systems surface and amplify existing operational gaps, turning accumulated operational debt into immediate, measurable failure. CIOs must conduct honest assessments of workflow ownership, data consistency, and governance before deploying AI, or risk accelerating the consequences of foundational problems that have been quietly tolerated for years.",
+    category: "agentic-ai",
+    type: "insight",
+    date: "2026-06-04",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/what-is-ai-operational-reality",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["AI Governance", "Operational Maturity", "Enterprise AI", "Implementation", "Data Quality", "Operational Debt"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -910,5 +927,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-06-03";
+export const LAST_UPDATED = "2026-06-05";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
