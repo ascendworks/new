@@ -902,6 +902,38 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "high",
     crmTag: "advisory-opportunity",
   },
+  // ── IRM & Industry Insights (June 9–11, 2026) — sourced from CoreX ──────────
+
+  {
+    id: "industry-5-shifts-leaders",
+    title: "5 Shifts Organizational Leaders Can't Ignore About Industry 5.0",
+    summary:
+      "Industry 5.0 represents a fundamental operational shift beyond the visibility-focused monitoring of Industry 4.0, demanding integrated models where data connects to workflows, governance, and coordinated response across the enterprise. CoreX identifies five critical shifts — including the enduring centrality of human expertise, the growing liability of operational silos, and the primacy of governance over technology tooling — that define readiness as AI amplifies underlying weaknesses rather than masking them. For IT leaders, the framework validates unified platform investments: organizations that have monitoring infrastructure but lack cross-functional workflow integration are most exposed as agentic AI scales.",
+    category: "industry",
+    type: "trend",
+    date: "2026-06-09",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/5-operational-realities-organizations-need-to-know-about-industry-5.0",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=80&auto=format&fit=crop",
+    tags: ["Industry 5.0", "Operational Resilience", "AI Governance", "Enterprise Strategy", "Digital Transformation"],
+    leadSignal: "medium",
+    crmTag: "advisory-opportunity",
+  },
+  {
+    id: "servicenow-irm-operational",
+    title: "How to Make ServiceNow IRM Operational",
+    summary:
+      "ServiceNow IRM implementations frequently achieve technical completeness but fail operationally because risk teams remain isolated from business stakeholders — producing what CoreX terms 'ghost frameworks' that satisfy auditors but do not influence decisions. Success requires establishing clear ownership before expanding scope, phasing deployment to avoid configuration complexity, and embedding risk management into daily workflows such as change management, vendor onboarding, and incident response. The true measure of IRM maturity is whether teams actively consult it in operational decisions, not whether workflows are configured — a distinction that separates compliance theater from genuine risk reduction.",
+    category: "platform",
+    type: "insight",
+    date: "2026-06-11",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/how-to-make-servicenow-irm-operational",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80&auto=format&fit=crop",
+    tags: ["IRM", "GRC", "Risk Management", "Operational Readiness", "ServiceNow", "Governance"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -927,5 +959,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-06-05";
+export const LAST_UPDATED = "2026-06-11";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
