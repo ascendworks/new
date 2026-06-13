@@ -934,6 +934,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "high",
     crmTag: "advisory-opportunity",
   },
+  // ── AI Operational Readiness (June 12, 2026) — sourced from CoreX ────────────
+
+  {
+    id: "corex-dan-gale-ai-operational-readiness",
+    title: "Dan Gale: Helping Organizations Prepare for the Reality of AI",
+    summary:
+      "CoreX Head of Solution Consulting Dan Gale argues that organizations cannot simply deploy AI agents and expect transformational results — success requires trusted data, defined processes, governance models, and clear business outcomes as foundational prerequisites. The critical strategic shift for IT leaders is reframing the question from 'What AI tool should we use?' to 'Are we ready to operationalize AI at scale?' ServiceNow serves as the connective platform for coordinating workflows and governing AI use, but only for organizations that have built the operational foundation first.",
+    category: "agentic-ai",
+    type: "insight",
+    date: "2026-06-12",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/dan-gale-helping-organizations-prepare-for-the-operational-reality-of-ai",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["Operational Readiness", "AI Agents", "Enterprise AI", "ServiceNow", "Governance", "AI Operationalization"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -959,5 +976,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-06-11";
+export const LAST_UPDATED = "2026-06-13";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
