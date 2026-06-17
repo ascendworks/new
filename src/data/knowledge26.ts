@@ -951,6 +951,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "high",
     crmTag: "advisory-opportunity",
   },
+  // ── Operational AI Foundations (June 16, 2026) — sourced from CoreX ──────────
+
+  {
+    id: "building-operational-ai-foundation-industry-5",
+    title: "Building the Operational AI Foundation for Industry 5.0",
+    summary:
+      "Industry 5.0 demands a deliberate progression from generative AI assistants to coordinated agentic workflows capable of automating complex operational processes in manufacturing and industrial environments. CoreX's Dean Stavrou argues that success depends not on tool selection but on establishing trusted data foundations, comprehensive OT asset visibility, and modular agent design before automation is deployed at scale. CIOs should treat data governance and operational visibility as non-negotiable prerequisites — without them, AI agents amplify existing blind spots rather than eliminating them.",
+    category: "agentic-ai",
+    type: "insight",
+    date: "2026-06-16",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/building-the-operational-ai-foundation-for-industry-5.0",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["Industry 5.0", "Agentic AI", "Operational AI", "OT Management", "Data Governance", "ServiceNow"],
+    leadSignal: "medium",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -976,5 +993,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-06-13";
+export const LAST_UPDATED = "2026-06-17";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
