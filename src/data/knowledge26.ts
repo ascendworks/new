@@ -968,6 +968,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "medium",
     crmTag: "advisory-opportunity",
   },
+  // ── Platform Health & Governance (June 18, 2026) — sourced from CoreX ─────────
+
+  {
+    id: "servicenow-implementation-drift-5-signs",
+    title: "5 Signs Your ServiceNow Implementation Is Quietly Drifting Off Course",
+    summary:
+      "Mature ServiceNow environments accumulate operational debt silently — five warning signs include needing archaeological investigations before any change, dangerous single-point-of-knowledge dependencies, permanent spreadsheet workarounds, unreliable reporting data, and fragmented platform ownership with no holistic accountability. CoreX's Brad Bortone argues that IT leaders must regularly assess whether their platform is becoming easier or harder to work with, and that someone must actively own overall platform health rather than simply processing tickets and upgrades. Organizations exhibiting multiple signs face expensive remediation and stalled AI enablement, as agentic workflows demand clean, well-governed foundations to execute reliably at scale.",
+    category: "platform",
+    type: "insight",
+    date: "2026-06-18",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/5-signs-your-servicenow-platform-is-quietly-drifting-off-course",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80&auto=format&fit=crop",
+    tags: ["Platform Health", "Operational Debt", "ServiceNow", "Implementation", "Governance", "Platform Drift"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -993,5 +1010,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-06-17";
+export const LAST_UPDATED = "2026-06-19";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
