@@ -1010,5 +1010,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-06-19";
+export const LAST_UPDATED = "2026-06-23";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
