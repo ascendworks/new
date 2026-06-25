@@ -985,6 +985,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "high",
     crmTag: "advisory-opportunity",
   },
+  // ── Post-Implementation Advisory (June 23, 2026) — sourced from CoreX ─────────
+
+  {
+    id: "servicenow-conversations-after-implementation",
+    title: "The ServiceNow Conversations That Happen After Implementation",
+    summary:
+      "ServiceNow go-lives surface operational conversations organizations weren't prepared for — data quality surprises, CMDB integration requests, and cross-functional expansion needs that require disciplined governance to navigate. CoreX's Eric Jones argues that top-performing organizations treat post-implementation as a strategic continuation rather than a project conclusion, investing in structured data governance and CMDB consolidation before reactive habits reassert themselves. CIOs should build post-implementation governance frameworks before go-live to sustain momentum and accelerate the path from deployment to measurable operational value.",
+    category: "platform",
+    type: "insight",
+    date: "2026-06-23",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/the-servicenow-conversations-that-happen-after-implementation",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80&auto=format&fit=crop",
+    tags: ["Post-Implementation", "ServiceNow", "CMDB", "Data Governance", "Operational Maturity", "Platform Health"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -1010,5 +1027,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-06-23";
+export const LAST_UPDATED = "2026-06-25";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
