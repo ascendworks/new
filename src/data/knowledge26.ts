@@ -1002,6 +1002,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "high",
     crmTag: "advisory-opportunity",
   },
+  // ── Strategic Portfolio Management (June 25, 2026) — sourced from CoreX ─────────
+
+  {
+    id: "5-signs-projects-vs-strategy",
+    title: "5 Signs Your Organization Is Running on Projects Instead of Strategy",
+    summary:
+      "Organizations that treat every request as urgent and manage strategy and execution in separate systems cannot allocate resources based on value — the exact operational fragmentation that ServiceNow Strategic Portfolio Management is built to eliminate. CoreX's Brad Bortone identifies five warning signs of strategy-execution disconnect: strategy confined to presentations, funding decisions without value clarity, excessive reporting overhead, misaligned delivery teams, and no mechanism to pause or reprioritize investments. IT leaders evaluating SPM should use these markers to diagnose current-state maturity before defining their implementation scope.",
+    category: "platform",
+    type: "insight",
+    date: "2026-06-25",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/5-signs-your-organization-is-running-on-projects-instead-of-strategy",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80&auto=format&fit=crop",
+    tags: ["Strategic Portfolio Management", "SPM", "Strategy Execution", "Governance", "ServiceNow", "Portfolio Management"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -1027,5 +1044,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-06-25";
+export const LAST_UPDATED = "2026-06-27";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
