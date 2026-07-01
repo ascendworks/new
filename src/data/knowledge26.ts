@@ -1019,6 +1019,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "high",
     crmTag: "advisory-opportunity",
   },
+  // ── OT Transformation (June 30, 2026) — sourced from CoreX ───────────────────
+
+  {
+    id: "ot-transformation-framework-industry-5",
+    title: "An OT Transformation Framework for Industry 5.0",
+    summary:
+      "Organizations pursuing Industry 5.0 autonomous operations consistently stall when attempting wholesale transformation — CoreX's Dean Stavrou proposes a five-step iterative framework that begins with small, measurable wins in targeted areas such as asset maintenance or procurement before expanding progressively across the enterprise. The methodology prioritizes sequential implementation, quantified impact measurement, and synergy identification over simultaneous reinvention, and applies equally across manufacturing, finance, and healthcare environments. CIOs should select flexible platforms that enable phased transformation rather than treating platform capability as a shortcut to enterprise-wide automation.",
+    category: "industry",
+    type: "insight",
+    date: "2026-06-30",
+    source: "CoreX",
+    sourceUrl: "https://www.corexcorp.com/insights/an-ot-transformation-framework-for-industry-5.0",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=80&auto=format&fit=crop",
+    tags: ["Industry 5.0", "OT Transformation", "Operational Technology", "Manufacturing", "Change Management", "ServiceNow"],
+    leadSignal: "medium",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -1044,5 +1061,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-06-27";
+export const LAST_UPDATED = "2026-07-01";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
