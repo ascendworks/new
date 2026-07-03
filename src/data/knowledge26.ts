@@ -1036,6 +1036,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "medium",
     crmTag: "advisory-opportunity",
   },
+  // ── AI Governance Insights (July 2, 2026) — sourced from CoreX ────────────────
+
+  {
+    id: "governance-gap-enterprise-ai",
+    title: "The Governance Gap Emerging Within Enterprise AI",
+    summary:
+      "Enterprise AI adoption is outpacing organizational governance frameworks, creating a critical visibility gap where AI embedded in productivity tools, SaaS upgrades, and developer environments operates outside monitored channels. Agentic AI amplifies this risk — unlike deterministic systems, it can simultaneously consume data, generate recommendations, and execute actions across multiple systems, rendering traditional periodic audit models obsolete. CIOs must treat data quality, ownership accountability, and cross-functional oversight as deployment prerequisites to prevent shadow AI activity from compounding operational vulnerabilities before governance structures are in place.",
+    category: "agentic-ai",
+    type: "insight",
+    date: "2026-07-02",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/governance-gap-emerging-within-enterprise-ai",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["AI Governance", "Shadow AI", "Enterprise AI", "Agentic AI", "Data Quality", "Risk Management"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -1061,5 +1078,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-07-01";
+export const LAST_UPDATED = "2026-07-03";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
