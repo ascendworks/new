@@ -1053,6 +1053,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "high",
     crmTag: "advisory-opportunity",
   },
+  // ── Vulnerability Aggregation (July 7, 2026) — sourced from CoreX ────────────
+
+  {
+    id: "can-servicenow-aggregate-vulnerabilities",
+    title: "Can ServiceNow Help Aggregate Vulnerabilities?",
+    summary:
+      "ServiceNow's role in vulnerability management extends beyond centralizing scanner output — it transforms multi-source security data into coordinated remediation work through normalization, correlation, deduplication, contextualization, and workflow integration. Rather than replacing Qualys, Tenable, or Rapid7, ServiceNow operates as the operational backbone that connects technical findings to asset ownership, business context, and IT processes for consistent enterprise-wide accountability. CIOs overseeing multi-scanner environments should evaluate ServiceNow's aggregation capabilities not as data consolidation but as the governance layer that drives measurable remediation outcomes at scale.",
+    category: "itsm",
+    type: "insight",
+    date: "2026-07-07",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/can-servicenow-help-aggregate-vulnerabilities",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&auto=format&fit=crop",
+    tags: ["Vulnerability Management", "CMDB", "SecOps", "Security Operations", "Aggregation", "ServiceNow"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -1078,5 +1095,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-07-03";
+export const LAST_UPDATED = "2026-07-07";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
