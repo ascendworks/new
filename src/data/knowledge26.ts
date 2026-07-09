@@ -1070,6 +1070,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "high",
     crmTag: "advisory-opportunity",
   },
+  // ── Vulnerability Governance (July 9, 2026) — sourced from CoreX ─────────────
+
+  {
+    id: "vulnerability-data-to-risk-reduction",
+    title: "From Vulnerability Data to Risk Reduction: Why Aggregation Isn't Enough",
+    summary:
+      "Consolidating vulnerability scanner data from Qualys, Tenable, or Rapid7 into ServiceNow creates a shared visibility layer, but CIOs must recognize that aggregation alone does not reduce risk without disciplined remediation workflows, clear ownership accountability, and business context that ties findings to organizational priorities. Organizations that treat ServiceNow as an operational backbone — not a reporting destination — build the governance structures that make AI-driven security operations viable in future releases. True security value emerges from measurable remediation outcomes, not dashboards, and the data quality and ownership decisions made now determine whether vulnerability programs scale effectively at enterprise depth.",
+    category: "itsm",
+    type: "insight",
+    date: "2026-07-09",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/from-vulnerability-data-to-risk-reduction-why-aggregation-isnt-enough",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&auto=format&fit=crop",
+    tags: ["Vulnerability Management", "Risk Reduction", "SecOps", "Security Operations", "Governance", "ServiceNow"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -1095,5 +1112,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-07-07";
+export const LAST_UPDATED = "2026-07-09";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
