@@ -1087,6 +1087,23 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "high",
     crmTag: "advisory-opportunity",
   },
+  // ── Industry Partnership (July 9, 2026) — sourced from BusinessWire ──────────
+
+  {
+    id: "hitachi-servicenow-infrastructure-ai",
+    title: "Hitachi Digital Services Partners with ServiceNow for AI-Powered Infrastructure Monitoring",
+    summary:
+      "Hitachi Digital Services announced a partnership with ServiceNow to advance HIIM (Hitachi Intelligent Infrastructure Monitoring), integrating video, thermal imaging, IoT sensor data, and advanced analytics with ServiceNow's Workflow Data Fabric and AI-driven workflows. The solution enables mission-critical infrastructure operators in energy, mobility, and manufacturing to move from fragmented data visibility to automated enterprise-wide response — detecting, prioritizing, and resolving issues proactively rather than reactively. For CIOs in industrial sectors, the announcement signals that agentic AI is reaching operational technology and physical infrastructure, where the ROI case is grounded in safety, uptime, and workforce constraints.",
+    category: "industry",
+    type: "announcement",
+    date: "2026-07-09",
+    source: "Hitachi Digital Services / ServiceNow",
+    sourceUrl: "https://www.businesswire.com/news/home/20260709713580/en/Hitachi-Digital-Services-Announces-Partnership-with-ServiceNow-to-Advance-AI-powered-Solution-for-Mission-Critical-Infrastructure-Monitoring",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=80&auto=format&fit=crop",
+    tags: ["Hitachi", "Infrastructure Monitoring", "IoT", "Manufacturing", "Energy", "Workflow Data Fabric", "OT"],
+    leadSignal: "medium",
+    crmTag: "implementation-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -1112,5 +1129,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-07-09";
+export const LAST_UPDATED = "2026-07-11";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
