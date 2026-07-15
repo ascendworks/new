@@ -1104,6 +1104,24 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     leadSignal: "medium",
     crmTag: "implementation-opportunity",
   },
+  // ── Talent & Implementation Shift (July 14, 2026) — sourced from CoreX ────────
+
+  {
+    id: "agentic-ai-forward-deployed-engineers",
+    title: "Why the Agentic AI Era Needs Forward Deployed Engineers",
+    summary:
+      "Agentic AI transforms ServiceNow implementation from configuring known workflows to designing how autonomous systems — with governance models, decision boundaries, and ontology frameworks unique to each organization — participate in business operations. This shift demands capabilities in AI governance design, data architecture, and business context integration that traditional ServiceNow implementation teams are not yet built to deliver. CIOs evaluating agentic AI partners should prioritize demonstrated expertise in AI operating model design over technical configuration speed, and must invest in either internal talent development or deep advisory partnerships before autonomous workflows scale across the enterprise.",
+    category: "staffing",
+    type: "insight",
+    date: "2026-07-14",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/why-the-agentic-ai-era-needs-forward-deployed-engineers",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80&auto=format&fit=crop",
+    tags: ["Agentic AI", "Forward Deployed Engineers", "Implementation", "AI Governance", "Staffing", "ServiceNow Partners"],
+    leadSignal: "high",
+    trending: true,
+    crmTag: "staffing-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -1129,5 +1147,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-07-11";
+export const LAST_UPDATED = "2026-07-15";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
