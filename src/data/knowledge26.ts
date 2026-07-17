@@ -1122,6 +1122,42 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     trending: true,
     crmTag: "staffing-opportunity",
   },
+  // ── AI Governance & SPM Partner Intelligence (July 16, 2026) — sourced from CoreX ──
+
+  {
+    id: "human-in-the-loop-ai-operating-models",
+    title: "Human-in-the-Loop AI: Designing Operating Models for Agentic AI in the Enterprise",
+    summary:
+      "Enterprise AI governance requires distinguishing between human oversight — accountability for outcomes — and human dependency, which creates bottlenecks when every AI action requires approval. A risk-based operating model reserves human judgment for high-impact decisions while allowing autonomous execution for routine tasks, enabling organizations to scale agentic AI without sacrificing control. CIOs should design 'human-on-the-loop' structures where leaders monitor exceptions and outcomes rather than reviewing individual AI transactions.",
+    category: "agentic-ai",
+    type: "insight",
+    date: "2026-07-16",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/human-in-the-loop-ai-designing-operating-models-for-agentic-ai-in-the-enterprise",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["Agentic AI", "Human-in-the-Loop", "AI Governance", "Operating Model", "Enterprise AI", "AI Control Tower"],
+    leadSignal: "high",
+    trending: true,
+    crmTag: "advisory-opportunity",
+  },
+  {
+    id: "top-servicenow-spm-partners-americas",
+    title: "What Are the Top ServiceNow SPM Implementation Partners in the Americas?",
+    summary:
+      "Selecting a ServiceNow Strategic Portfolio Management implementation partner should be driven by program scope rather than organization size — platform-first specialists deliver superior outcomes for standalone SPM initiatives while global systems integrators suit multi-year enterprise transformations. CIOs should prioritize partners with demonstrated Americas SPM practice depth, senior consultant involvement throughout delivery, and structured post-go-live advisory support. Industry-specific expertise in manufacturing, energy, and life sciences further differentiates implementation outcomes at comparable organizational scale.",
+    category: "staffing",
+    type: "insight",
+    date: "2026-07-16",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/what-are-the-top-servicenow-spm-implementation-partners-in-the-americas",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80&auto=format&fit=crop",
+    tags: ["SPM", "Strategic Portfolio Management", "Implementation Partners", "ServiceNow", "Americas", "Partner Selection"],
+    leadSignal: "medium",
+    stats: [
+      { label: "Completed ServiceNow Projects", value: "2,750+" },
+    ],
+    crmTag: "advisory-opportunity",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -1147,5 +1183,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-07-15";
+export const LAST_UPDATED = "2026-07-17";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
