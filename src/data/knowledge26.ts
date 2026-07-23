@@ -1122,6 +1122,38 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     trending: true,
     crmTag: "staffing-opportunity",
   },
+  // ── New CoreX Insights (July 21–23, 2026) ────────────────────────────────────
+
+  {
+    id: "five-observations-ai-governance-gap",
+    title: "5 Observations About the Growing AI Governance Gap",
+    summary:
+      "Enterprise AI adoption is outpacing governance at nearly every organization, resulting in fragmented department-by-department implementations that create invisible operational risk. Brad Bortone's five observations — from governance emerging organically rather than strategically to the distinction between policy documentation and operational embedding — establish that AI governance is now a competitive differentiator, not a compliance function. CIOs must treat governance architecture as a prerequisite for scaling agentic AI, not a layer bolted on after deployment.",
+    category: "agentic-ai",
+    type: "insight",
+    date: "2026-07-23",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/5-observations-about-the-growing-ai-governance-gap",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["AI Governance", "Enterprise AI", "Agentic AI", "Governance Gap", "Operating Model", "Shadow AI"],
+    leadSignal: "high",
+    crmTag: "advisory-opportunity",
+  },
+  {
+    id: "servicenow-core-business-services-s2p",
+    title: "How ServiceNow Core Business Services Connects Procurement, Suppliers, and Finance Through a Single Platform",
+    summary:
+      "ServiceNow Core Business Services acts as an orchestration layer across procurement, supplier management, contract administration, and accounts payable — preserving existing ERP investments while eliminating the manual handoffs and disconnected approvals that fragment Source-to-Pay operations. Document Intelligence combines OCR and AI to automate invoice extraction, while configurable business rules route approvals based on thresholds and policy hierarchy without email-based coordination. CIOs evaluating ERP modernization should consider CBS as a non-disruptive path to workflow unification before committing to costly system replacements.",
+    category: "platform",
+    type: "insight",
+    date: "2026-07-21",
+    source: "CoreX",
+    sourceUrl: "https://corexcorp.com/insights/how-servicenow-core-business-services-connects-procurement-suppliers-and-finance-through-a-single-platform",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80&auto=format&fit=crop",
+    tags: ["Core Business Services", "Procurement", "Source to Pay", "Finance", "ERP", "Document Intelligence", "ServiceNow"],
+    leadSignal: "high",
+    crmTag: "platform-services",
+  },
   // ── AI Governance & SPM Partner Intelligence (July 16, 2026) — sourced from CoreX ──
 
   {
@@ -1183,5 +1215,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-07-17";
+export const LAST_UPDATED = "2026-07-23";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
