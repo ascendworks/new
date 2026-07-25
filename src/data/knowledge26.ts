@@ -1190,6 +1190,30 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     ],
     crmTag: "advisory-opportunity",
   },
+  // ── Q2 2026 Financial Results (July 22, 2026) — ServiceNow Newsroom ──────────
+
+  {
+    id: "servicenow-q2-2026-earnings-ai-acv",
+    title: "ServiceNow Q2 2026: AI Annual Contract Value Crosses $1 Billion as Agentic Deployments Surge 9×",
+    summary:
+      "ServiceNow's Q2 2026 results mark a commercial inflection point for enterprise AI: AI ACV exceeded $1 billion for the first time while agentic deployments grew ninefold in just nine months. Total revenues reached $3,987 million — 24% year-over-year growth — powered by 123 deals over $1 million in net new ACV, up nearly 40% year-over-year, with nearly all 50 U.S. states now deploying the ServiceNow AI Platform. For CIOs, the rapid adoption of AI Control Tower — surpassing 500 customers in its first six months — signals that governed AI is no longer aspirational: it is production-ready at enterprise scale.",
+    category: "agentic-ai",
+    type: "announcement",
+    date: "2026-07-22",
+    source: "ServiceNow Newsroom",
+    sourceUrl: "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-Reports-Second-Quarter-2026-Financial-Results/default.aspx",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80&auto=format&fit=crop",
+    tags: ["Q2 2026", "Earnings", "AI ACV", "Agentic AI", "Financial Results", "AI Control Tower", "ServiceNow"],
+    leadSignal: "high",
+    trending: true,
+    stats: [
+      { label: "ServiceNow AI ACV", value: "$1B+" },
+      { label: "Agentic Deployments Growth", value: "9× in 9 months" },
+      { label: "Q2 Total Revenue", value: "$3,987M (+24%)" },
+      { label: "$1M+ ACV Deals", value: "123 (↑40% YoY)" },
+    ],
+    crmTag: "thought-leadership",
+  },
 ];
 
 // ─── Derived helpers ──────────────────────────────────────────────────────────
@@ -1215,5 +1239,5 @@ export function searchItems(query: string): KnowledgeItem[] {
   );
 }
 
-export const LAST_UPDATED = "2026-07-23";
+export const LAST_UPDATED = "2026-07-25";
 export const TOTAL_ITEMS = KNOWLEDGE_ITEMS.length;
